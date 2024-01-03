@@ -1,0 +1,29 @@
+<html>
+
+{% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+<body>
+  {% block header %}
+    {{ super() }}
+  {% endblock %}
+
+  {% block content %}
+  <br>
+  <center><H3> El usuario es inexistente o la contraseña es erroenea </H3></center><br><br>   
+  <center><H3> Intente nuevamente</H3></center>
+  <br><br><br><br><br>  
+  {% endblock %}
+
+  {% block footer %}
+    {{ super() }}
+  {% endblock %}
+  
+</body>
+
+</html>
+
+
+</html>

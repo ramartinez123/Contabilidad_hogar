@@ -1,0 +1,140 @@
+html{
+    height: 100%;
+}
+
+body{
+    min-height: 100vh;
+    position: relative;
+}
+
+.t_country{
+    text-align: start;
+}   
+
+.x-tittle{
+    font-weight: bold; 
+    text-align: center;
+}
+
+.data_r{
+    text-align: end;
+}   
+
+    /*navbar footer*/
+.navbar,footer,#persnav {
+    background-color:  #1b0861;
+}
+
+#navbarDropdownMenuLink, #cont, #logo,.white-color,#color_text_footer,#ttittle,#navbardrop {
+    color: white;
+}
+
+#logo{
+    width: 120px;
+}
+
+#contnav{
+    width: 100%;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+footer{
+    position:static;
+    bottom: 0;
+    width: 100%;
+    padding-left: 0;
+    
+}
+
+#lupa{
+    background-color:  #1b0861;
+}
+
+
+/*Index*/
+
+#im2{
+    height: 40%;
+}
+
+#im3{
+    height: 40%;
+}
+
+#im2{
+    height: 40%;
+}
+
+#im11{
+    height: 42%;
+}
+
+#ttittle{
+    margin-right: 1em;
+    margin-left: 1em;
+    background-color: #67823a;
+}
+
+
+/*transactions*/
+
+#accounts1,#accounts2,#subAccountFOrm,#subAccountForm2,#debehaberForm,#debehaberForm2{
+    height: 37px;
+}
+
+/*countries*/
+
+
+/*popullatinSx*/
+
+@media (max-width: 600px) {
+    #my_font {
+        font-size: 14px;
+    }
+ }
+
+ #centereddiv,#centereddiv2 {
+    justify-content: center;
+    color: black; 
+    margin-bottom: 15px;
+}
+
+#grafico,#grafico2 {
+    justify-content: center;
+    width: 420px;
+    margin-bottom: 15px;
+}
+
+#grafico2,#grafica {
+    justify-content: center;
+}
+
+/*unemployment*/
+
+#grafico3 {
+    margin-bottom: 240px;
+}
+
+/*editcountries editstates*/
+
+#sen, #sen2{
+    width: 20%;
+}
+
+/*quickinsert*/
+
+#viajeselect,#medio1,#currency,#medio2,#medio3,#actividad1,#actividad2,#actividad3,#feeQuickInsert1,#feeQuickInsert2,#feeQuickInsert3{
+    height: 37px;
+}
+
+/*reportes*/
+#breport{
+    height: 31;
+}
+
+
+
+
+
+

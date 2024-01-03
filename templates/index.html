@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+<body>
+  {% block header %}
+  {{ super() }}
+  {% endblock %}
+
+  {% block content %}
+
+  <main>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col text-center text-uppercase">
+            <small>Tips para que crezcan tu</small>
+            <h2>Ahorros</h2>
+         
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card" style="height: 100%;">
+              <img src="{{ url_for('static', filename='images/indice.png')}}" class="card-img-top" id="im11"alt="foto Steve">
+              <div class="card-body">
+                <div class="badges">
+                  <span class="badge badge-danger">Ahorro</span>
+                </div>
+
+                <h5 class="card-title">Inversiones para pequeños ahorristas</h5>
+                <p class="small">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                  officia deserunt mollit anim id est laborum
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="card" style="height:100%;">
+              <img src="{{ url_for('static', filename='images/indice2.jpg')}}" class="card-img-top" id="im2"alt="foto Steve">
+              <div class="card-body">
+                <div class="badges">
+                  <span class="badge badge-danger">Ahorro</span>
+                  <span class="badge badge-info">Gastos</span>
+                </div>
+
+                <h5 class="card-title">Reflexiones de un gastador compulsivo</h5>
+                <p class="small">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                  officia deserunt mollit anim id est laborum
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="card" style="height: 100%;">
+              <img src="{{ url_for('static', filename='images/indice3.jpg')}}" class="card-img-top" id="im3"alt="foto Steve">
+              <div class="card-body">
+                <div class="badges">
+                  <span class="badge badge-secondary">Estilo de vida</span>
+
+                </div>
+
+                <h5 class="card-title">El dinero y yo en los tiempos de pandemia</h5>
+                <p class="small">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                  officia deserunt mollit anim id est laborum
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  {% endblock %}
+
+  {% block footer %}
+  {{ super() }}
+  {% endblock %}
+
+</body>
+

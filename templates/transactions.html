@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+<body>
+  {% block header %}
+    {{ super() }}
+  {% endblock %}
+
+  {% block content %}
+
+  <h1> <center>Libro diario</center> </h1>
+
+    <div class="container text-center">
+        
+        <div class="col-12 col-md-10 ">
+                <table class="table table-striped col-12">
+                    <thead>
+                        <tr>
+                            <td >Id</td>
+                            <td>Fecha</td>
+                            <td>Cuenta</td>
+                            <td><center>Debe</center></td>
+                            <td><center>Haber</center></td>
+                            <td>Comentario</td>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        {% for transaction in transactions %}
+                            {% if transaction.FkidVIncreasedBY == 1  %}
+                              <tr>
+                                  <td class="col-md-1">{{ transaction.id_AccountingTransactions}}</td>
+                                  <td class="col-md-1">{{ transaction.accruedDate}}</td>
+                                  <td class="col-md-2">{{ transaction.FkidVAccount}}</td>                           
+                                  <td class="col-md-1"><center>{{ transaction.amount}}</center></td>
+                                  <td class="col-md-1"></td>  
+                                  <td class="col-md-3">{{ transaction.comment}}</td>             
+                              </tr>
+
+                            {% else  %}
+                              <tr>
+                                  <td class="col-1">{{ transaction.id_AccountingTransactions}}</td>
+                                  <td class="col-1">{{ transaction.accruedDate}}</td>
+                                  <td class="col-1">{{ transaction.FkidVAccount}}</td>                           
+                                  <td class="col-1"></td>
+                                  <td class="col-1"><center>{{ transaction.amount}}</center></td>               
+                                </tr>
+
+                            {% endif %}
+                          {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        
+        
+    </div>
+  {% endblock %}
+  {% block footer %}  
+    {{ super() }}
+  {% endblock %}
+</body>>
+     
+</html>

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+<body>
+  {% block header %}
+    {{ super() }}
+  {% endblock %}
+
+  {% block content %}
+
+  <h1> <center>Historial Cotizaciones</center> </h1>
+
+    <div class="container text-center">
+        
+        <div class="col-12 col-md-10 ">
+                <table class="table table-striped col-12">
+                    <thead>
+                        <tr>
+                            <td >Id</td>
+                            <td>Fecha</td>
+                            <td>Moneda</td>
+                            <td>Importe</td>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        {% for transaction in transactions %}
+                              <tr>
+                                  <td class="col-md-1">{{ transaction.id_Exchange}}</td>
+                                  <td class="col-md-1">{{ transaction.dateCoti}}</td>
+                                  <td class="col-md-2">{{ transaction.FkidCurrency}}</td>                           
+                                  <td class="col-md-1">{{ transaction.importeCot}}</td>        
+                              </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        
+        
+    </div>
+  {% endblock %}
+  {% block footer %}  
+    {{ super() }}
+  {% endblock %}
+</body>>
+     
+</html>
