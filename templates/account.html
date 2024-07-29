@@ -1,48 +1,48 @@
 {% extends "base.html" %}
 {% block head %}
-  {{ super() }}
+{{ super() }}
 {% endblock %}
 
 <body>
   {% block header %}
-    {{ super() }}
+  {{ super() }}
   {% endblock %}
 
   {% block content %}
 
-    <div class="container text-center">
-        
-        <div class="col-12 col-md-10 ">
-                <table class="table table-striped col-12">
-                    <thead>
-                        <tr>
-                            <td >Id</td>
-                            <td>Account</td>
-                            <td>Account Type</td>
-                            <td>Account Item</td>
-                        </tr>
+  <div class="container text-center">
 
-                    </thead>
-                    <tbody>
-                        {% for account in accounts %}
-                              <tr>
-                                  <td class="col-md-1">{{ account.idAccount}}</td>
-                                  <td class="col-md-1">{{ account.Account}}</td>
-                                  <td class="col-md-2">{{ account.FkidVAccountType}}</td>                           
-                                  <td class="col-md-1">{{ account.FkidAccountingItem}}</td>   
-                                
-                              </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        
-        
+    <div class="col-md-7">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <td>Id</td>
+            <td>Account</td>
+            <td>Account Type</td>
+            <td>Account Item</td>
+          </tr>
+
+        </thead>
+        <tbody>
+          {% for account in accounts %}
+          <tr>
+            <td class="col-md-1">{{ account.idAccount}}</td>
+            <td class="col-md-2">{{ account.Account}}</td>
+            <td class="col-md-2">{{ account.FkidVAccountType}}</td>
+            <td class="col-md-2">{{ account.FkidAccountingItem}}</td>
+
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
+
+
+  </div>
   {% endblock %}
-  {% block footer %}  
-    {{ super() }}
+  {% block footer %}
+  {{ super() }}
   {% endblock %}
 </body>>
-     
+
 </html>

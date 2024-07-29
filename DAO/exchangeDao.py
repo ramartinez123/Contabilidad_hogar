@@ -3,7 +3,7 @@ from models.exchange import Exchange
 from config.conf import Inic
 
 class Exchanges:   
-    def InsertExchange(exchange:Exchange) -> Exchange:
+    def InsertExchange(exchange:Exchange) -> None:
         query ="INSERT INTO exchange (dateCoti,FKidCurrency,ImporteCot) VALUES(%s,%s,%s)"
         parameters=[exchange.getdateCoti(),exchange.getFkidCurrency(),exchange.getImporteCot()]    
         Inic.db_insert(query,parameters)    

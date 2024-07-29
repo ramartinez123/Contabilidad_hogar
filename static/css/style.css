@@ -7,25 +7,12 @@ body{
     position: relative;
 }
 
-.t_country{
-    text-align: start;
-}   
-
-.x-tittle{
-    font-weight: bold; 
-    text-align: center;
-}
-
-.data_r{
-    text-align: end;
-}   
-
     /*navbar footer*/
-.navbar,footer,#persnav {
+.navbar,footer {
     background-color:  #1b0861;
 }
 
-#navbarDropdownMenuLink, #cont, #logo,.white-color,#color_text_footer,#ttittle,#navbardrop {
+.white-color,#color_text_footer,#navbardrop {
     color: white;
 }
 
@@ -43,73 +30,20 @@ footer{
 
 #lupa{
     background-color:  #1b0861;
+    color: white;
 }
 
 
 /*Index*/
 
-#im2{
+#im2, #im3,#im11{
     height: 40%;
 }
-
-#im3{
-    height: 40%;
-}
-
-#im11{
-    height: 40%;
-}
-
-#ttittle{
-    margin-right: 1em;
-    margin-left: 1em;
-    background-color: #67823a;
-}
-
 
 /*transactions*/
 
 #accounts1,#accounts2,#subaccountForm ,#subaccountForm2,#debehaberForm,#debehaberForm2,#viajeSelect{
     height: 37px;
-}
-
-/*countries*/
-
-
-/*popullatinSx*/
-
-@media (max-width: 600px) {
-    #my_font {
-        font-size: 14px;
-    }
- }
-
- #centereddiv,#centereddiv2 {
-    justify-content: center;
-    color: black; 
-    margin-bottom: 15px;
-}
-
-#grafico,#grafico2 {
-    justify-content: center;
-    width: 420px;
-    margin-bottom: 15px;
-}
-
-#grafico2,#grafica {
-    justify-content: center;
-}
-
-/*unemployment*/
-
-#grafico3 {
-    margin-bottom: 240px;
-}
-
-/*editcountries editstates*/
-
-#sen, #sen2{
-    width: 20%;
 }
 
 /*quickinsert*/
@@ -118,10 +52,7 @@ footer{
     height: 37px;
 }
 
-/*reportes*/
-#breport{
-    height: 31;
-}
+
 
 
 

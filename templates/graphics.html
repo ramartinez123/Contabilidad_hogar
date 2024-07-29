@@ -1,47 +1,46 @@
 {% extends "base.html" %}
 {% block head %}
-  {{ super() }}
+{{ super() }}
 {% endblock %}
 
 <body>
   {% block header %}
-    {{ super() }}
+  {{ super() }}
   {% endblock %}
 
   {% block content %}
 
-  <div class="container col-md-12 ">
+  <div class="container-fluid mt-3">
 
     <script>
-      let aLooses = {{transactions | tojson}}    
-      let aAssets = {{assets | tojson}}  
-      let Looses_by =  {{categories | tojson}}  
-      let liabilities = {{ liability | tojson}}                               
+      let aLooses = {{ transactions | tojson}};
+      let aAssets = {{ assets | tojson}};
+      let Looses_by = {{ categories | tojson}};
+      let liabilities = {{ liability | tojson}};                             
     </script>
 
-    <div class="row mb-4"> 
-        <div class="col-md-6" id="prueba">    
-              <canvas id="grafica3" ></canvas>   
-        </div>
-                
-        <div class="col-md-6 " id="pruebas">
-              <canvas id="grafica4" ></canvas> 
-        </div>
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <canvas id="grafica3"></canvas>
+      </div>
+
+      <div class="col-md-6 ">
+        <canvas id="grafica4"></canvas>
+      </div>
     </div>
 
     <div class="row mb-4 ">
-        <div class="col-md-6" id="prueba5 ">
-             <canvas id="grafica5" ></canvas> 
-        </div>
-        <div class="col-md-6 " id="prueba6">
-          <canvas id="grafica6" ></canvas> 
-        </div>
+      <div class="col-md-6">
+        <canvas id="grafica5"></canvas>
+      </div>
+
+      <div class="col-md-6 ">
+        <canvas id="grafica6"></canvas>
+      </div>
     </div>
-  </div>
-  {% endblock %}
-  {% block footer %}  
+
+    {% endblock %}
+    {% block footer %}
     {{ super() }}
-  {% endblock %}
-</body>>
-     
-</html>
+    {% endblock %}
+</body>

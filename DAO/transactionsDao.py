@@ -17,21 +17,19 @@ class Queries:
                  records.append(answer)
         return records 
             
-    def InsertTransaction(transaction:Transactions) -> Transactions:
+    def InsertTransaction(transaction:Transactions) -> None:
         query ="""INSERT INTO accountingtransactions (FkidVAccount,FkidSubAccount,FkidVIncreasedBY,accruedDate
         ,amount,FKidCountry,FkidCity,comment,FkidDues)
         VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
-        Queries.UpdateExchange()
         parameters=[transaction.getFkidVAccount(),transaction.getFkidSubAccount(),
                     transaction.getFkidVIncreasedBY(),transaction.getaccruedDate(),transaction.getamount(),
                     transaction.getFKidCountry(),
-                    transaction.getFkidCity(),transaction.getcomment(),transaction.getFkidDues()]
-                 
+                    transaction.getFkidCity(),transaction.getcomment(),transaction.getFkidDues()]          
         Inic.db_insert(query,parameters)    
 
     def QuerybyDate(transaction:Transactions) -> list[Transactions]: 
         query ="""SELECT accountingtransactions.*,accounts.account FROM accountingtransactions INNER JOIN accounts on accountingtransactions.FkidVAccount=accounts.idAccount
-        where aaccountingtransactions.accruedDate == (%s) """ 
+        where accountingtransactions.accruedDate = (%s) """ 
         parameters=[transaction.getaccruedDate()]
         answers = Inic.db_connect(query,parameters)
         records = []
@@ -40,7 +38,7 @@ class Queries:
             records.append(answer)
         return records 
     
-    def InsertExchange() -> list[Transactions]:
+    def InsertExchange() -> None:
         query ="""INSERT INTO accountingtransactions (FkidVAccount,FkidSubAccount,FkidVIncreasedBY,accruedDate
         ,amount,FKidCountry,FkidCity,comment,FkidDues)
         VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"""

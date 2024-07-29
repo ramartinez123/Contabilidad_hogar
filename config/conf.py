@@ -1,40 +1,37 @@
 from app import mysql
 
 class Inic:
-    query=""
-    def __init__(self,query,paramters):
-        self.db(query)
-        self.db(paramters)
-
-    def db_connect(quers,parameter):
-        query = quers
-        paramtersa = parameter
-        try:
+    @staticmethod
+    def db_connect(query,parameters):       
+        try:    
            cur = mysql.connection.cursor()
            try:  
-                 cur.execute(query,paramtersa) 
+                 cur.execute(query,parameters) 
                  answer=cur.fetchall()
-           except:
-                 print("Error de acceso a los datos")
+           except Exception as e:
+                 print(f"Error de acceso a los datos: {e}")
+           finally:
+                cur.close()
         except:
-           print("No se puedo establecer la conexion")            
-        cur.close()
+           print("No se puedo establecer la conexion")  
+           answer = None          
         return answer
-    
-    
-    def db_insert(quers,parameter):
-        query = quers
-        parametersa= parameter
+
+    @staticmethod
+    def db_insert(query,parameters):
         try:
-           cur = mysql.connection.cursor()
-           try:  
-                 cur.execute(query,parametersa) 
-                 mysql.connection.commit()
-           except:
-                 print("Error de acceso a los datos")
-        except:
-           print("No se puedo establecer la conexion")            
-        cur.close()
+            cur = mysql.connection.cursor()
+            try:  
+                cur.execute(query,parameters) 
+                mysql.connection.commit()  
+            except Exception as e:
+                print(f"Error de acceso a los datos: {e}")
+            finally:
+                cur.close()
+        except Exception as e:
+            print(f"No se pudo establecer la conexión: {e}")
+
+
       
 
         

@@ -1,85 +1,85 @@
 {% extends "base.html" %}
 {% block head %}
-  {{ super() }}
+{{ super() }}
 {% endblock %}
 
 <body>
   {% block header %}
-    {{ super() }}
+  {{ super() }}
   {% endblock %}
 
   {% block content %}
 
-  <div class="container text-center">
-  
+  <div class="container-fluid text-center">
+
     <form action="/reports/list_assets_byYearD" method="POST">
       <div class="form-group row mt-3 align-items-center">
         <label for="year" class="col-md-1 col-form-label">Año</label>
-        <div class="col-md-1" >
+        <div class="col-md-1">
           <select class="form-select" aria-label="Default select example" id="year" name="year">
             <option value="2023" selected>2023</option>
             <option value="2024">2024</option>
           </select>
         </div>
         <div class="col-md-1">
-          <button class="btn btn-primary btn-sm" type="submit" >Seleccionar </button>
+          <button class="btn btn-primary btn-sm" type="submit">Seleccionar </button>
         </div>
         <div class="col-md-6 ">
           <h3> Activo</h2>
         </div>
       </div>
     </form>
-        
-        <div class="col-12 col-md-10 mb-5 mt-3">
-                <table class="table table-striped col-12">
-                    <thead>
-                        <tr>
-                          <td class="col-md-1">Codigo</td>
-                          <td class="col-md-1">Cuenta</td>
-                          <td class="col-md-1">Jan</td>
-                          <td class="col-md-1">Feb</td>
-                          <td class="col-md-1">Mar</td>
-                          <td class="col-md-1">Apr</td>
-                          <td class="col-md-1">May</td>
-                          <td class="col-md-1">Jun</td>
-                          <td class="col-md-1">Jul</td>
-                          <td class="col-md-1">Aug</td>
-                          <td class="col-md-1">Sep</td>
-                          <td class="col-md-1">Oct</td>
-                          <td class="col-md-1">Nov</td>
-                          <td class="col-md-1">Dec</td>
-                        </tr>
 
-                    </thead>
-                    <tbody>
-                        {% for transaction in transactions %}
-                              <tr style="text-align: right">
-                                  <td class="col-md-1" style= "text-align: left">{{ transaction.FkidVAccount}}</td>
-                                  <td class="col-md-1" style= "text-align: left">{{ transaction.account}}</td>
-                                  <td class="col-md-1">{{ transaction.january}}</td>
-                                  <td class="col-md-1">{{ transaction.february}}</td>
-                                  <td class="col-md-1">{{ transaction.march}}</td>
-                                  <td class="col-md-1">{{ transaction.april}}</td>
-                                  <td class="col-md-1">{{ transaction.may}}</td>
-                                  <td class="col-md-1">{{ transaction.june}}</td>
-                                  <td class="col-md-1">{{ transaction.july}}</td>
-                                  <td class="col-md-1">{{ transaction.august}}</td>
-                                  <td class="col-md-1">{{ transaction.september}}</td>
-                                  <td class="col-md-1">{{ transaction.october}}</td>
-                                  <td class="col-md-1">{{ transaction.november}}</td>
-                                  <td class="col-md-1">{{ transaction.december}}</td>                                           
-                              </tr>
-                          {% endfor %}
+    <div class="col-md-12 mb-5 mt-3">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <td class="col-md-1">Codigo</td>
+            <td class="col-md-1">Cuenta</td>
+            <td class="col-md-1">Jan</td>
+            <td class="col-md-1">Feb</td>
+            <td class="col-md-1">Mar</td>
+            <td class="col-md-1">Apr</td>
+            <td class="col-md-1">May</td>
+            <td class="col-md-1">Jun</td>
+            <td class="col-md-1">Jul</td>
+            <td class="col-md-1">Aug</td>
+            <td class="col-md-1">Sep</td>
+            <td class="col-md-1">Oct</td>
+            <td class="col-md-1">Nov</td>
+            <td class="col-md-1">Dec</td>
+          </tr>
 
-                    </tbody>
-                </table>  
-            </div>     
-        
+        </thead>
+        <tbody>
+          {% for transaction in transactions %}
+          <tr style="text-align: right">
+            <td class="col-md-1" style="text-align: left">{{ transaction.FkidVAccount}}</td>
+            <td class="col-md-1" style="text-align: left">{{ transaction.account}}</td>
+            <td class="col-md-1">{{ transaction.january}}</td>
+            <td class="col-md-1">{{ transaction.february}}</td>
+            <td class="col-md-1">{{ transaction.march}}</td>
+            <td class="col-md-1">{{ transaction.april}}</td>
+            <td class="col-md-1">{{ transaction.may}}</td>
+            <td class="col-md-1">{{ transaction.june}}</td>
+            <td class="col-md-1">{{ transaction.july}}</td>
+            <td class="col-md-1">{{ transaction.august}}</td>
+            <td class="col-md-1">{{ transaction.september}}</td>
+            <td class="col-md-1">{{ transaction.october}}</td>
+            <td class="col-md-1">{{ transaction.november}}</td>
+            <td class="col-md-1">{{ transaction.december}}</td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
     </div>
+
+  </div>
   {% endblock %}
-  {% block footer %}  
-    {{ super() }}
+  {% block footer %}
+  {{ super() }}
   {% endblock %}
 </body>>
-     
+
 </html>

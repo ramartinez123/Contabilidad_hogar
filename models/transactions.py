@@ -46,7 +46,7 @@ class Transactions:
         return self.amount
 
     def setamount(self,x):
-        self.amount, =x
+        self.amount =x
 
     def getFKidCountry(self):
         return self.FKidCountry

@@ -3,7 +3,7 @@ from models.transactions import Transactions
 from config.conf import Inic
 
 class Queries:   
-    def InsertQuickTransac(transaction:Transactions) -> Transactions:
+    def InsertQuickTransac(transaction:Transactions) -> None:
         query ="""INSERT INTO accountingtransactions (FkidVAccount,FkidSubAccount,FkidVIncreasedBY
         ,accruedDate,amount,FKidCountry,FkidCity,comment,FkidDues) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
         account = transaction.getFkidVAccount()

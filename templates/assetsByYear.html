@@ -10,10 +10,10 @@
 
   {% block content %}
 
-  <div class="container text-center">
+  <div class="container-fluid text-center">
 
     <form action="/reports/list_assets_byYear" method="POST">
-      <div class="form-group row mt-3 align-items-center">
+      <div class="form-group row mt-3 ">
         <label for="year" class="col-md-1 col-form-label">Año</label>
         <div class="col-md-1">
           <select class="form-select" aria-label="Default select example" id="year" name="year">
@@ -30,8 +30,8 @@
       </div>
     </form>
 
-    <div class="col-12 col-md-10 mb-5 mt-3">
-      <table class="table table-striped col-12">
+    <div class="col-md-12 mb-5 mt-3">
+      <table class="table table-striped">
         <thead>
           <tr>
             <td class="col-md-1">Codigo</td>
@@ -71,7 +71,7 @@
           </tr>
           {% endfor %}
         </tbody>
-        
+
       </table>
     </div>
 

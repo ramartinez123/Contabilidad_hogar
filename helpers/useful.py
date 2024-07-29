@@ -45,11 +45,15 @@ class Exchanges:
     def importIs(importa) -> list[Exchange]: 
         curra = Exchanges.Todayis(importa)
         parameters=[curra]
-        query ="""SELECT MONTH (dateCoti) as mes, dateCoti, FKidCurrency, ImporteCot from exchange 
-                    WHERE dateCoti in (SELECT MAX(dateCoti) from exchange
+        query23 ="""SELECT MONTH (dateCoti) as mes, dateCoti, FKidCurrency, ImporteCot from exchange 
+                    WHERE dateCoti in (SELECT MAX(dateCoti) and dateCoti > '2024-01-01'from exchange
                                        GROUP BY MONTH (dateCoti), FKidCurrency) and FKidCurrency = (%s)"""
+        query24 ="""SELECT MONTH (dateCoti) as mes, dateCoti, FKidCurrency, ImporteCot from exchange 
+                    WHERE dateCoti > '2023-12-31' and dateCoti in (SELECT MAX(dateCoti) from exchange
+                                       GROUP BY MONTH (dateCoti), FKidCurrency) and FKidCurrency = (%s)"""
+
         records =[]
-        answers = Inic.db_connect(query,parameters)
+        answers = Inic.db_connect(query24,parameters)
         for answer in answers:
             answer = Exchange(answer[0],answer[1],answer[2],answer[3])   
             records.append(answer)
@@ -88,9 +92,7 @@ class Exchanges:
         FROM accountingtransactions INNER JOIN accounts on accountingtransactions.FkidVAccount=accounts.idAccount WHERE accountingtransactions.FkidVAccount > 4 and accountingtransactions.FkidVAccount < 52
         or accountingtransactions.FkidVAccount = 421 GROUP BY FkidVAccount ORDER BY FkidVAccount """ 
         parameters=[]  
-        answers = Inic.db_connect(query23,parameters)
-        partialAcum = Ledger("","",0,0,0,0,0,0,0,0,0,0,0,0) 
-        records = [] 
+        answers = Inic.db_connect(query24,parameters)     
         
         a5_1=a5_2=a6_1=a6_2=a7_1=a7_2=a8_1=a8_2=a9_2=a9_1=a10_1=a10_2=a11_1=a11_2=dif15_2=a15_1=a15_2=a16_1=a16_2=0
         a5_3=a5_4=a6_3=a6_4=a7_3=a7_4=a8_3=a8_4=a9_3=a9_4=a10_3=a10_4=a11_3=a11_4=dif15_4=a15_3=a15_4=a16_3=a16_4=0
@@ -110,7 +112,6 @@ class Exchanges:
                              ,sum(answer[2:12])
                              ,sum(answer[2:13])
                              ,sum(answer[2:14]))
-
 
             exchangeAccounts = Exchanges.importIs(answer.getFkidVAccount())  
             for exchangeAccount in exchangeAccounts:
@@ -249,21 +250,22 @@ class Exchanges:
                             answer.setdecember(exchangeAccount.getImporteCot() * answer.getdecember())
 
         reply =[]
-        dif15_1 =a5_1 + a6_1 + a7_1 + a8_1 + a9_1 + a10_1 + a11_1-410000  
+        dif15_1 =a5_1 + a6_1 + a7_1 + a8_1 + a9_1 + a10_1 + a11_1-(30468200)
         if a16_1 !=0:
             dif15_1=dif15_1 -((a16_1*-1))
         if dif15_1 != 0:
-            dif15_1o=Transactions("",15,0,1,'2023-01-28',dif15_1,1,1,"Asiento automatico",0)
-            dif421_1o=Transactions("",421,0,2,'2023-01-28',dif15_1,1,1,"Asiento automatico",0)
+            dif15_1o=Transactions("",15,0,1,'2024-01-28',dif15_1,1,1,"Asiento automatico",0)
+            dif421_1o=Transactions("",421,0,2,'2024-01-28',dif15_1,1,1,"Asiento automatico",0)
             reply.append(dif15_1o)
             reply.append(dif421_1o)
 
         dif15_2 =a5_2-a5_1 + a6_2-a6_1 + a7_2-a7_1 + a8_2-a8_1 + a9_2-a9_1 + a10_2-a10_1 + a11_2-a11_1
+        print(a5_2,a5_1)
         if a16_2 !=0:
             dif15_2=dif15_2 -((a16_2*-1)-(a16_1*-1))
         if dif15_2 != 0:
-            dif15_2o=Transactions("",15,0,1,'2023-02-28',dif15_2,1,1,"Asiento automatico",0)
-            dif421_2o=Transactions("",421,0,2,'2023-02-28',dif15_2,1,1,"Asiento automatico",0)
+            dif15_2o=Transactions("",15,0,1,'2024-02-28',dif15_2,1,1,"Asiento automatico",0)
+            dif421_2o=Transactions("",421,0,2,'2024-02-28',dif15_2,1,1,"Asiento automatico",0)
             reply.append(dif15_2o)
             reply.append(dif421_2o)
 
@@ -271,8 +273,8 @@ class Exchanges:
         if a16_3 !=0:
             dif15_3=dif15_3 -((a16_3*-1)-(a16_2*-1))
         if dif15_3 != 0:
-            dif15_3o=Transactions("",15,0,1,'2023-03-28',dif15_3,1,1,"Asiento automatico",0)
-            dif421_3o=Transactions("",421,0,2,'2023-03-28',dif15_3,1,1,"Asiento automatico",0)
+            dif15_3o=Transactions("",15,0,1,'2024-03-28',dif15_3,1,1,"Asiento automatico",0)
+            dif421_3o=Transactions("",421,0,2,'2024-03-28',dif15_3,1,1,"Asiento automatico",0)
             reply.append(dif15_3o)
             reply.append(dif421_3o)
 
@@ -280,8 +282,8 @@ class Exchanges:
         if a16_4 !=0:
             dif15_4=dif15_4 -((a16_4*-1)-(a16_3*-1))
         if dif15_4 != 0:
-            dif15_4o=Transactions("",15,0,1,'2023-04-28',dif15_4,1,1,"Asiento automatico",0)
-            dif421_4o=Transactions("",421,0,2,'2023-04-28',dif15_4,1,1,"Asiento automatico",0)
+            dif15_4o=Transactions("",15,0,1,'2024-04-28',dif15_4,1,1,"Asiento automatico",0)
+            dif421_4o=Transactions("",421,0,2,'2024-04-28',dif15_4,1,1,"Asiento automatico",0)
             reply.append(dif15_4o)
             reply.append(dif421_4o)
 
@@ -289,8 +291,8 @@ class Exchanges:
         if a16_5 !=0:
             dif15_5=dif15_5 -((a16_5*-1)-(a16_4*-1))
         if dif15_5 != 0:
-            dif15_5o=Transactions("",15,0,1,'2023-05-28',dif15_5,1,1,"Asiento automatico",0)
-            dif421_5o=Transactions("",421,0,2,'2023-05-28',dif15_5,1,1,"Asiento automatico",0)
+            dif15_5o=Transactions("",15,0,1,'2024-05-28',dif15_5,1,1,"Asiento automatico",0)
+            dif421_5o=Transactions("",421,0,2,'2024-05-28',dif15_5,1,1,"Asiento automatico",0)
             reply.append(dif15_5o)
             reply.append(dif421_5o)
 
@@ -298,8 +300,8 @@ class Exchanges:
         if a16_6 !=0:
             dif15_6=dif15_6 -((a16_6*-1)-(a16_5*-1))
         if dif15_6 != 0:
-            dif15_6o=Transactions("",15,0,1,'2023-06-28',dif15_6,1,1,"Asiento automatico",0)
-            dif421_6o=Transactions("",421,0,2,'2023-06-28',dif15_6,1,1,"Asiento automatico",0)
+            dif15_6o=Transactions("",15,0,1,'2024-06-28',dif15_6,1,1,"Asiento automatico",0)
+            dif421_6o=Transactions("",421,0,2,'2024-06-28',dif15_6,1,1,"Asiento automatico",0)
             reply.append(dif15_6o)
             reply.append(dif421_6o)
 

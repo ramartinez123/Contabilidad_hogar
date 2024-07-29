@@ -17,7 +17,7 @@ class QueriesAccount:
         return records 
     
             
-    def Insert(account:Account) -> Account:
+    def Insert(account:Account) -> None:
         query ="INSERT INTO accounts (account,FkidVAccountType,FkidAccountingItem,FkidVIncreasedBY,FkidAccountingMethod,FKidCourrency,Detalle) VALUES(%s,%s,%s,%s,%s,%s,%s)"
         parameters=[account.getFAccount(),account.getFkidVAccountType(),
                     account.getFkidAccountingItem(),account.getFkidVIncreasedBY(),account.FkidAccountingMethod(),

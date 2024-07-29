@@ -1,0 +1,8 @@
+/__pycache__
+.png
+.jpg
+.txt
+.sql
+/static/images
+/config/database
+__pycache__
