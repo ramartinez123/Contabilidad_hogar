@@ -19,14 +19,13 @@ class Ledger:
         return self.FkidVAccount
     
     def setFkidVAccount(self,FkidVAccount):
-        self.FkidVAccount
+        self.FkidVAccount = FkidVAccount
     
-    def getaccount(self):
-        
+    def getaccount(self):     
         return self.account
     
     def setaccount(self,account):
-        self.account
+        self.account = account
     
     def getjanuary(self):
         return self.january

@@ -1,4 +1,4 @@
-from flask import render_template,request,redirect,url_for
+from flask import render_template,request,redirect,url_for,flash
 from flask_login import login_required
 from app import app
 from DAO.exchangeDao import Exchanges
@@ -25,8 +25,11 @@ def insertExchange():
 @app.route('/cotiz/listExchange')
 @login_required
 def listExchange():
-    data= Exchanges.QueryExchange()
-    return render_template("cotiz.html", transactions = data)
-
+    try:
+        data= Exchanges.QueryExchange()
+        return render_template("cotiz.html", transactions = data)
+    except Exception as e:
+        flash(f'Error al listar intercambios: {e}', 'error')
+        return render_template("error.html", error_message="No se pudieron recuperar las cotizaciones.")
 
     

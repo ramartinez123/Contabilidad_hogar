@@ -10,20 +10,20 @@ class User(UserMixin):
     def getidUser(self):
         return self.id
 
-    def setidUser(self,x):
-        self.user =x
+    def setidUser(self,value):
+        self.user =value
 
     def getnameUser(self):
         return self.name
 
-    def setnameUser(self,x):
-        self.name =x
+    def setnameUser(self,value):
+        self.name =value
 
     def getpasswordUser(self):
         return self.password
 
-    def setpasswordUser(self,x):
-        self.password =x
+    def setpasswordUser(self,value):
+        self.password =value
 
 
     @classmethod

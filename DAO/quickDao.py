@@ -6,48 +6,61 @@ class Queries:
     def InsertQuickTransac(transaction:Transactions) -> None:
         query ="""INSERT INTO accountingtransactions (FkidVAccount,FkidSubAccount,FkidVIncreasedBY
         ,accruedDate,amount,FKidCountry,FkidCity,comment,FkidDues) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
+       
+       # Diccionario para el mapeo de cuentas
+        account_map = {
+            "1": 341,
+            "2": 331,
+            "3": 333,
+            "4": 17,
+            "5": 342,
+            "6": 304,
+            "7": 305,
+            "8": 301,
+            "9": 306,
+            "10": 307,
+            "11": 311,
+            "31": 1,
+            "32": 210,
+            "33": 212,
+            "34": 211,
+            "35": 213,
+            "36": 13
+        }
+
+        # Obtener y mapear la cuenta
         account = transaction.getFkidVAccount()
-        match account:
-            case "1":
-                transaction.setFkidVAccount(341)
-            case "2":
-                transaction.setFkidVAccount(331)    
-            case "3":
-                transaction.setFkidVAccount(333)
-            case "4":
-                transaction.setFkidVAccount(17)
-            case "5":
-                transaction.setFkidVAccount(342)
-            case "6":
-                transaction.setFkidVAccount(304)
-            case "7":
-                transaction.setFkidVAccount(305)
-            case "8":
-                transaction.setFkidVAccount(301)
-            case "9":
-                transaction.setFkidVAccount(306)
-            case "10":
-                transaction.setFkidVAccount(307)
-            case "11":
-                transaction.setFkidVAccount(311)
-            case "31":
-                transaction.setFkidVAccount(1)
-            case "32":
-                transaction.setFkidVAccount(210)
-            case "33":
-                transaction.setFkidVAccount(212)
-            case "34":
-                transaction.setFkidVAccount(211)
-            case "35":
-                transaction.setFkidVAccount(213)
-            case "36":
-                transaction.setFkidVAccount(13)
-
-        parameters=[transaction.getFkidVAccount(),transaction.getFkidSubAccount(),
-                    transaction.getFkidVIncreasedBY(),transaction.getaccruedDate(),transaction.getamount(),
-                    transaction.getFKidCountry(),
-                    transaction.getFkidCity(),transaction.getcomment(),transaction.getFkidDues()]
+        if account in account_map:
+            transaction.setFkidVAccount(account_map[account])
         
-        Inic.db_insert(query,parameters)    
+        # Validar datos antes de la inserción
+        try:
+            parameters = [
+                transaction.getFkidVAccount(),
+                transaction.getFkidSubAccount(),
+                transaction.getFkidVIncreasedBY(),
+                transaction.getaccruedDate(),
+                transaction.getamount(),
+                transaction.getFKidCountry(),
+                transaction.getFkidCity(),
+                transaction.getcomment(),
+                transaction.getFkidDues()
+            ]
 
+            # Verificar que todos los parámetros sean válidos
+            for param in parameters:
+                if param is None:
+                    raise ValueError("Valor invalido")
+
+            # Realizar la inserción en la base de datos
+            Inic.db_insert(query, parameters)
         
+        except Exception as e:
+            # Manejar errores de inserción
+            print(f"Error de inserción: {e}")
+       
+       
+       
+       
+       
+     

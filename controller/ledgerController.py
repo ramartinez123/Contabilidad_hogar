@@ -7,7 +7,7 @@ from DAO.ledgerDao import Queries
 @login_required
 def list_looses_byYear():
     if request.method == "POST":
-        ayear = int(request.form['year'])
+        ayear = int(request.form['year'])  
         data= Queries.Losses_byYear(ayear)
         return render_template("loosesByYear.html", transactions = data)
     else:

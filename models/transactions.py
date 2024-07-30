@@ -15,8 +15,8 @@ class Transactions:
     def getid_AccountingTransactions(self):
         return self.id_AccountingTransactions
 
-    def setid_AccountingTransactions(self,x):
-        self.id_AccountingTransactions =x
+    def setid_AccountingTransactions(self,value):
+        self.id_AccountingTransactions =value
 
     def getFkidVAccount(self):
         return self.FkidVAccount
@@ -27,48 +27,48 @@ class Transactions:
     def getFkidSubAccount(self):
         return self.FkidSubAccount
 
-    def setFkidSubAccount(self,x):
-        self.FkidSubAccount =x
+    def setFkidSubAccount(self,value):
+        self.FkidSubAccount =value
 
     def getFkidVIncreasedBY(self):
         return self.FkidVIncreasedBY
 
-    def setFkidVIncreasedBY(self,x):
-        self.FkidVIncreasedBY =x
+    def setFkidVIncreasedBY(self,value):
+        self.FkidVIncreasedBY =value
 
     def getaccruedDate(self):
         return self.accruedDate
 
-    def setaccruedDate(self,x):
-        self.accruedDate =x
+    def setaccruedDate(self,value):
+        self.accruedDate =value
 
     def getamount(self):
         return self.amount
 
-    def setamount(self,x):
-        self.amount =x
+    def setamount(self,value):
+        self.amount =value
 
     def getFKidCountry(self):
         return self.FKidCountry
 
-    def setFKidCountry(self,x):
-        self.FKidCountry =x
+    def setFKidCountry(self,value):
+        self.FKidCountry =value
 
     def getFkidCity(self):
         return self.FkidCity
 
-    def setFkidCity(self,x):
-        self.FkidCity =x
+    def setFkidCity(self,value):
+        self.FkidCity =value
 
     def getcomment(self):
         return self.comment
 
-    def setcomment(self,x):
-        self.comment =x
+    def setcomment(self,value):
+        self.comment =value
 
     def getFkidDues(self):
         return self.FkidDues
 
-    def setFkidDues(self,x):
-        self.FkidDues =x
+    def setFkidDues(self,value):
+        self.FkidDues =value
 

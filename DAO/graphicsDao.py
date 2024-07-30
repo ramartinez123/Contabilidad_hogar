@@ -14,6 +14,11 @@ class Queries:
             GROUP BY MONTH (accruedDate)  """ 
         parameters=[]
         answer= Inic.db_connect(query,parameters)
+
+        # Validación
+        if not answer:
+            return "No se recibieron datos"
+
         return answer 
 
     def Losses_byGraphic():  
@@ -23,6 +28,11 @@ class Queries:
                 WHERE FkidVAccount >300 and FkidVAccount  <400 and accruedDate> '2023-12-31'  GROUP BY FkidVAccount  """ 
         parameters=[]
         answer= Inic.db_connect(query,parameters)
+
+        # Validación
+        if not answer:
+            return "No se recibieron datos"
+        
         return answer 
         
     def AssetsGraphics():  
@@ -34,6 +44,10 @@ class Queries:
             GROUP BY MONTH (accruedDate)  """ 
         parameters=[]
         answers= Inic.db_connect(query,parameters)
+
+        # Validación
+        if not answers:
+            return "No se recibieron datos"
 
         records = [] 
         acu=0
@@ -52,6 +66,10 @@ class Queries:
             GROUP BY MONTH (accruedDate)  """ 
         parameters=[]
         answers= Inic.db_connect(query,parameters)
+
+        # Validación
+        if not answers:
+            return "No se recibieron datos"
 
         records = [] 
         acu=0

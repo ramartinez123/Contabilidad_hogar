@@ -2,7 +2,8 @@ from app import mysql
 
 class Inic:
     @staticmethod
-    def db_connect(query,parameters):       
+    def db_connect(query,parameters):      
+       #  Ejecuta una consulta SELECT en la base de datos y devuelve los resultados. 
         try:    
            cur = mysql.connection.cursor()
            try:  
@@ -19,6 +20,7 @@ class Inic:
 
     @staticmethod
     def db_insert(query,parameters):
+        #  Ejecuta una consulta INSERT en la base de datos.
         try:
             cur = mysql.connection.cursor()
             try:  
