@@ -12,17 +12,20 @@ function populateSelect(selectId, optionsArray) {
     });
 }
 
+// Carga codigo cuentas en el selector
 function codigoCuentas() {
     var cuentasCatalogo = accountNames.map(element => `${element[0]}-${element[1]}`);
     populateSelect("accounts1", cuentasCatalogo);
     populateSelect("accounts2", cuentasCatalogo);
 }
 
+// Carga paises en el selector
 function paises() {
     var countryList = countryNames.map(element => `${element[0]}-${element[1]}`);
     populateSelect("pais", countryList);
 }
 
+// Carga ciudades en el selector
 function cities() {
     var cityList = cityNames.map(element => `${element[0]}-${element[1]}`);
     populateSelect("city", cityList);

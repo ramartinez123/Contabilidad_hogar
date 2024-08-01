@@ -1,4 +1,3 @@
-
 from config.conf import Inic
 from models.exchange import Exchange
 from models.graphics import Graphics
@@ -14,11 +13,6 @@ class Queries:
             GROUP BY MONTH (accruedDate)  """ 
         parameters=[]
         answer= Inic.db_connect(query,parameters)
-
-        # Validación
-        if not answer:
-            return "No se recibieron datos"
-
         return answer 
 
     def Losses_byGraphic():  
@@ -28,11 +22,6 @@ class Queries:
                 WHERE FkidVAccount >300 and FkidVAccount  <400 and accruedDate> '2023-12-31'  GROUP BY FkidVAccount  """ 
         parameters=[]
         answer= Inic.db_connect(query,parameters)
-
-        # Validación
-        if not answer:
-            return "No se recibieron datos"
-        
         return answer 
         
     def AssetsGraphics():  
@@ -45,14 +34,10 @@ class Queries:
         parameters=[]
         answers= Inic.db_connect(query,parameters)
 
-        # Validación
-        if not answers:
-            return "No se recibieron datos"
-
         records = [] 
         acu=0
         for answer in answers:                                     
-            acu = acu + answer[1]
+            acu += answer[1]
 
             records.append((answer[0],acu))
         return records 
@@ -67,16 +52,11 @@ class Queries:
         parameters=[]
         answers= Inic.db_connect(query,parameters)
 
-        # Validación
-        if not answers:
-            return "No se recibieron datos"
-
         records = [] 
         acu=0
         for answer in answers:                                     
-            acu = acu + answer[1]
-
+            acu += answer[1]
             records.append((answer[0],acu))
         return records
 
-    
+        

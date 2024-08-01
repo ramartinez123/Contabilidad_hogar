@@ -65,6 +65,7 @@ def list_transactions():
 def update_exchange_t():
     try:
         Queries.InsertExchange()
+        return redirect(url_for("list_assets_byYear"))
     except Exception as e:
         print(f"Error al actualizar el intercambio: {e}")
         return redirect(url_for("list_assets_byYear"))

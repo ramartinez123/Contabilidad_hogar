@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% block head %}
 {{ super() }}
 {% endblock %}
@@ -9,70 +10,59 @@
   {% endblock %}
 
   {% block content %}
-
-  <div class="container text-center">
-
-    <div class="row mb-2">
+  <div class="container my-4">
+    <div class="row mb-3">
       <div class="col text-center">
-        <h2>Libro diario</h2>
+        <h2>Libro Diario</h2>
       </div>
     </div>
 
-
-    <div class="col-md-9">
-      <table class="table table-striped align-items-center">
-        <thead>
-          <tr>
-            <td>Id</td>
-            <td>Fecha</td>
-            <td>Cuenta</td>
-            <td>
-              <center>Debe</center>
-            </td>
-            <td>
-              <center>Haber</center>
-            </td>
-            <td>Comentario</td>
-          </tr>
-
-        </thead>
-        <tbody>
-          {% for transaction in transactions %}
-          {% if transaction.FkidVIncreasedBY == 1 %}
-          <tr>
-            <td class="col-md-1">{{ transaction.id_AccountingTransactions}}</td>
-            <td class="col-md-1">{{ transaction.accruedDate}}</td>
-            <td class="col-md-2">{{ transaction.FkidVAccount}}</td>
-            <td class="col-md-1">
-              <center>{{ transaction.amount}}</center>
-            </td>
-            <td class="col-md-1"></td>
-            <td class="col-md-3">{{ transaction.comment}}</td>
-          </tr>
-
-          {% else %}
-          <tr>
-            <td class="col-1">{{ transaction.id_AccountingTransactions}}</td>
-            <td class="col-1">{{ transaction.accruedDate}}</td>
-            <td class="col-1">{{ transaction.FkidVAccount}}</td>
-            <td class="col-1"></td>
-            <td class="col-1">
-              <center>{{ transaction.amount}}</center>
-            </td>
-          </tr>
-
-          {% endif %}
-          {% endfor %}
-        </tbody>
-      </table>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Cuenta</th>
+                <th scope="col" class="text-center">Debe</th>
+                <th scope="col" class="text-center">Haber</th>
+                <th scope="col">Comentario</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for transaction in transactions %}
+              {% if transaction.FkidVIncreasedBY == 1 %}
+              <tr>
+                <td>{{ transaction.id_AccountingTransactions }}</td>
+                <td>{{ transaction.accruedDate }}</td>
+                <td>{{ transaction.FkidVAccount }}</td>
+                <td class="text-center">{{ transaction.amount }}</td>
+                <td class="text-center"></td>
+                <td>{{ transaction.comment }}</td>
+              </tr>
+              {% else %}
+              <tr>
+                <td>{{ transaction.id_AccountingTransactions }}</td>
+                <td>{{ transaction.accruedDate }}</td>
+                <td>{{ transaction.FkidVAccount }}</td>
+                <td class="text-center"></td>
+                <td class="text-center">{{ transaction.amount }}</td>
+                <td></td>
+              </tr>
+              {% endif %}
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-
-
   </div>
   {% endblock %}
+
   {% block footer %}
   {{ super() }}
   {% endblock %}
-</body>>
-
+</body>
 </html>

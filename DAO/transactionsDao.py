@@ -15,7 +15,7 @@ class Queries:
         parameters=[]
         try:
             answers = Inic.db_connect(query,parameters)
-            records=[]
+            records = []    
             for answer in answers:
                  answer = Transactions( answer[0],answer[10],answer[2],answer[3],answer[4]
                                        ,answer[5],answer[6],answer[7],answer[8],answer[9])
@@ -23,7 +23,7 @@ class Queries:
             return records 
         except Exception as e:
             print(f"No se recibieron datos: {e}")
-            return []
+            return records
             
     def InsertTransaction(transaction:Transactions) -> None:
         """if not Queries.validate_transaction(transaction):

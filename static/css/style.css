@@ -2,11 +2,12 @@ html{
     height: 100%;
 }
 
-body{
+body {
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     position: relative;
-}
-
+  }
     /*navbar footer*/
 .navbar,footer {
     background-color:  #1b0861;
@@ -20,13 +21,12 @@ body{
     width: 120px;
 }
 
-footer{
-    position:static;
-    bottom: 0;
+footer {
+    margin-top: auto;
     width: 100%;
     padding-left: 0;
-    
-}
+  }
+  
 
 #lupa{
     background-color:  #1b0861;
@@ -52,10 +52,14 @@ footer{
     height: 37px;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    #logo {
+      width: 80px;
+    }
 
 
 
 
 
-
-
+}

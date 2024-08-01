@@ -5,9 +5,17 @@
   {% block head %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Contabilidad para el hogar, una solución integral para la gestión financiera personal.">
+  <meta name="keywords" content="contabilidad, hogar, finanzas, gestión, personal, transacciones">
+  <meta name="author" content="Tu Nombre o Empresa">
+  <meta name="robots" content="index, follow">  
+
   <title> Contabilidad para el hogar </title>
+
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" />
-  <!--<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css')}}"/>-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
@@ -18,7 +26,7 @@
   <header>
     {% block header %}
 
-    <nav class="navbar navbar-expand-sm navbar navbar-dark" id="persnav">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark" id="persnav">
       <div class="container-fluid" id="contnav">
         <a class="navbar-brand" id="cont" href="{{ url_for('index')}}"><img
             src="{{ url_for('static', filename='images/logo4.png')}}" id="logo"> </a>
@@ -92,9 +100,9 @@
   {% block content %}
   {% endblock %}
 
-  <footer>
+  <footer class="bg-dark text-light">
     {% block footer %}
-    <div class="container-fluid " id="color_text_footer">
+    <div class="container-fluid py-4"   >
       <div class="row mb-4 text-center ">
         <div class="col-md-4 ">
           <span>Mantente conectado a traves de nuestras redes:</span>
@@ -139,6 +147,7 @@
       </div>
     </div>
 
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
       crossorigin="anonymous"></script>
@@ -151,10 +160,6 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.0/Chart.bundle.js"></script>
     <script defer src="{{ url_for('static', filename='js/script.js')}}"></script>
     <script defer src="{{ url_for('static', filename='js/selectOption.js')}}"></script>
-    <!--<script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{ url_for('static', filename='bootstrap/js/jquery-3.7.1slim.min.js')}}"></script>-->
-    <!--  -->
     {% endblock %}
   </footer>
 </body>
