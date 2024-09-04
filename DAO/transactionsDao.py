@@ -26,9 +26,6 @@ class Queries:
             return records
             
     def InsertTransaction(transaction:Transactions) -> None:
-        """if not Queries.validate_transaction(transaction):
-            logging.error("La validación de la transacción falló.")
-            return"""
         query ="""INSERT INTO accountingtransactions (FkidVAccount,FkidSubAccount,FkidVIncreasedBY,accruedDate
         ,amount,FKidCountry,FkidCity,comment,FkidDues)
         VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
