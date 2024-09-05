@@ -11,6 +11,7 @@ class Inic:
                  answer=cur.fetchall()
            except Exception as e:
                  print(f"Error de acceso a los datos: {e}")
+                 answer = None
            finally:
                 cur.close()
         except:

@@ -10,16 +10,22 @@ class Usera:
         parameters=[user.getnameUser()]
         aux=user.password
         answerx = Inic.db_connect(query,parameters)
+        if not answerx:
+                return None
+        
         nn=answerx[0][2]
         answery=User(answerx[0][0],answerx[0][1],User.check_password(nn,aux))
         return answery  
-
     
+    @staticmethod
     @login_manager.user_loader
     def load_user_DAO(id):
         query ="SELECT * FROM user WHERE id =(%s)"
-        parameters=id
+        parameters=[id]
         answerx1 = Inic.db_connect(query,parameters)
+        if not answerx1:
+           return None
+        
         user_logged=User(answerx1[0][0],answerx1[0][1],answerx1[0][2])
         return user_logged
 

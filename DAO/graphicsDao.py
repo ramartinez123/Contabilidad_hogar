@@ -1,7 +1,4 @@
 from config.conf import Inic
-from models.exchange import Exchange
-from models.graphics import Graphics
-from helpers.useful import Exchanges
 
 class Queries:   
     def LossesGraphic():  

@@ -1,4 +1,4 @@
-from flask import render_template,request,redirect,url_for
+from flask import render_template,request,redirect,url_for,flash
 from flask_login import login_required
 from app import app
 from DAO.transactionsDao import Queries
@@ -40,6 +40,7 @@ def insert_transactions():
             request.form['cuotaForm']
         )
 
+
         # Insertar transacciones
         Queries.InsertTransaction(transaction1)
         Queries.InsertTransaction(transaction2)
@@ -67,7 +68,7 @@ def update_exchange_t():
         Queries.InsertExchange()
         return redirect(url_for("list_assets_byYear"))
     except Exception as e:
-        print(f"Error al actualizar el intercambio: {e}")
+        print(f"Error al actualizar : {e}")
         return redirect(url_for("list_assets_byYear"))
 
 @app.route('/transactions')

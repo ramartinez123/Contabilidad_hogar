@@ -1,8 +1,6 @@
 
 from models.ledger import Ledger
-from models.exchange import Exchange
 from config.conf import Inic
-from helpers.useful import Exchanges
 from typing import List
 
 # Consulta estandard a la base de datos para mayor

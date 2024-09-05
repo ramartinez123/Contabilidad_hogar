@@ -1,13 +1,29 @@
-from app import mysql
 from models.transactions import Transactions
 from config.conf import Inic
 from helpers.useful import Exchanges
 import logging
 from datetime import datetime
+from flask import flash
 
 logging.basicConfig(level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class Queries:   
+
+    def validate_transaction(transaction: Transactions) -> bool:
+        if not transaction.getFkidVAccount():
+            logging.error("La cuenta no puede estar vacía.")
+            return False     
+
+        accrued_date = transaction.getaccruedDate()
+        if not accrued_date:
+           logging.error("La fecha no puede estar vacía.")
+           return False
+        try:
+            datetime.strptime(accrued_date, "%Y-%m-%d")
+        except ValueError:
+            logging.error("La fecha debe estar en formato YYYY-MM-DD.")
+            return False
+        
     def QueryTransaction() -> list[Transactions]:  
         query ="""SELECT accountingtransactions.*,accounts.account FROM accountingtransactions 
         INNER JOIN accounts on accountingtransactions.FkidVAccount=accounts.idAccount
@@ -26,6 +42,10 @@ class Queries:
             return records
             
     def InsertTransaction(transaction:Transactions) -> None:
+        # Validar la transacción antes de la inserción
+        if not Queries.validate_transaction(transaction):
+            logging.error("Transacción inválida, no se insertará.")
+            return
         query ="""INSERT INTO accountingtransactions (FkidVAccount,FkidSubAccount,FkidVIncreasedBY,accruedDate
         ,amount,FKidCountry,FkidCity,comment,FkidDues)
         VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
@@ -66,23 +86,10 @@ class Queries:
           try:       
               Inic.db_insert(query,parameters) 
           except Exception as e:
-            print(f"Error insertando datos: {e}") 
+              print(f"Error insertando datos: {e}") 
 
     # Valida los datos de la transacción antes de la inserción.
-    def validate_transaction(transaction: Transactions) -> bool:
-        if not transaction.getFkidVAccount():
-            logging.error("La cuenta no puede estar vacía.")
-            return False     
 
-        accrued_date = transaction.getaccruedDate()
-        if not accrued_date:
-           logging.error("La fecha no puede estar vacía.")
-           return False
-        try:
-            datetime.strptime(accrued_date, "%Y-%m-%d")
-        except ValueError:
-            logging.error("La fecha debe estar en formato YYYY-MM-DD.")
-            return False
     
 
 

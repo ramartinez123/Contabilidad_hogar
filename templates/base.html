@@ -13,6 +13,7 @@
   <title> Contabilidad para el hogar </title>
 
   <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+  
 
   <!-- CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" />
@@ -160,6 +161,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.0/Chart.bundle.js"></script>
     <script defer src="{{ url_for('static', filename='js/script.js')}}"></script>
     <script defer src="{{ url_for('static', filename='js/selectOption.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     {% endblock %}
   </footer>
 </body>
