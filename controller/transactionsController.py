@@ -5,12 +5,12 @@ from DAO.transactionsDao import Queries
 from models.transactions import Transactions
 from DAO.accountDAO import QueriesAccount
 from datetime import datetime
+import logging
 import unittest
 
 @app.route('/transactions/insert_transactions', methods=['POST'])
 @login_required
 def insert_transactions():
-
     try:
         # Crear la primera transacción
         transaction1 = Transactions(
@@ -40,15 +40,13 @@ def insert_transactions():
             request.form['cuotaForm']
         )
 
-
         # Insertar transacciones
         Queries.InsertTransaction(transaction1)
         Queries.InsertTransaction(transaction2)
-
         return redirect(url_for("transactions"))
     
     except Exception as e:
-        print(f"Error al insertar transacciones: {e}")
+        logging.error(f"Error al crear objeto Transactions: {e}")
         return redirect(url_for("transactions"))
    
 @app.route('/transactions/list_transactions')

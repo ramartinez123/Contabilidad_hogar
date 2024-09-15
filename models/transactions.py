@@ -1,74 +1,73 @@
 class Transactions:
-    def __init__(self,id_AccountingTransactions,FkidVAccount, FkidSubAccount, FkidVIncreasedBY,
-                 accruedDate,amount,FKidCountry,FkidCity,comment,FkidDues):
-        self.id_AccountingTransactions = id_AccountingTransactions
-        self.FkidVAccount = FkidVAccount
-        self.FkidSubAccount = FkidSubAccount
-        self.FkidVIncreasedBY = FkidVIncreasedBY
-        self.accruedDate = accruedDate
+    def __init__(self, id_accounting_transactions: int, fkid_v_account: int, fkid_sub_account: int, fkid_v_increased_by: int,
+                 accrued_date: str, amount: float, fkid_country: int, fkid_city: int, comment: str, fkid_dues: int) -> None:
+        self.id_accounting_transactions = id_accounting_transactions
+        self.fkid_v_account = fkid_v_account
+        self.fkid_sub_account = fkid_sub_account
+        self.fkid_v_increased_by = fkid_v_increased_by
+        self.accrued_date = accrued_date
         self.amount = amount
-        self.FKidCountry = FKidCountry
-        self.FkidCity = FkidCity
+        self.fkid_country = fkid_country
+        self.fkid_city = fkid_city
         self.comment = comment
-        self.FkidDues = FkidDues
+        self.fkid_dues = fkid_dues
 
-    def getid_AccountingTransactions(self):
-        return self.id_AccountingTransactions
+    def get_id_accounting_transactions(self) -> int:
+        return self.id_accounting_transactions
 
-    def setid_AccountingTransactions(self,value):
-        self.id_AccountingTransactions =value
+    def set_id_accounting_transactions(self, value: int) -> None:
+        self.id_accounting_transactions = value
 
-    def getFkidVAccount(self):
-        return self.FkidVAccount
+    def get_fkid_v_account(self) -> int:
+        return self.fkid_v_account
 
-    def setFkidVAccount(self,FkidVAccount):
-        self.FkidVAccount =FkidVAccount
+    def set_fkid_v_account(self, value: int) -> None:
+        self.fkid_v_account = value
 
-    def getFkidSubAccount(self):
-        return self.FkidSubAccount
+    def get_fkid_sub_account(self) -> int:
+        return self.fkid_sub_account
 
-    def setFkidSubAccount(self,value):
-        self.FkidSubAccount =value
+    def set_fkid_sub_account(self, value: int) -> None:
+        self.fkid_sub_account = value
 
-    def getFkidVIncreasedBY(self):
-        return self.FkidVIncreasedBY
+    def get_fkid_v_increased_by(self) -> int:
+        return self.fkid_v_increased_by
 
-    def setFkidVIncreasedBY(self,value):
-        self.FkidVIncreasedBY =value
+    def set_fkid_v_increased_by(self, value: int) -> None:
+        self.fkid_v_increased_by = value
 
-    def getaccruedDate(self):
-        return self.accruedDate
+    def get_accrued_date(self) -> str:
+        return self.accrued_date
 
-    def setaccruedDate(self,value):
-        self.accruedDate =value
+    def set_accrued_date(self, value: str) -> None:
+        self.accrued_date = value
 
-    def getamount(self):
+    def get_amount(self) -> float:
         return self.amount
 
-    def setamount(self,value):
-        self.amount =value
+    def set_amount(self, value: float) -> None:
+        self.amount = value
 
-    def getFKidCountry(self):
-        return self.FKidCountry
+    def get_fkid_country(self) -> int:
+        return self.fkid_country
 
-    def setFKidCountry(self,value):
-        self.FKidCountry =value
+    def set_fkid_country(self, value: int) -> None:
+        self.fkid_country = value
 
-    def getFkidCity(self):
-        return self.FkidCity
+    def get_fkid_city(self) -> int:
+        return self.fkid_city
 
-    def setFkidCity(self,value):
-        self.FkidCity =value
+    def set_fkid_city(self, value: int) -> None:
+        self.fkid_city = value
 
-    def getcomment(self):
+    def get_comment(self) -> str:
         return self.comment
 
-    def setcomment(self,value):
-        self.comment =value
+    def set_comment(self, value: str) -> None:
+        self.comment = value
 
-    def getFkidDues(self):
-        return self.FkidDues
+    def get_fkid_dues(self) -> int:
+        return self.fkid_dues
 
-    def setFkidDues(self,value):
-        self.FkidDues =value
-
+    def set_fkid_dues(self, value: int) -> None:
+        self.fkid_dues = value

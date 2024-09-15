@@ -1,4 +1,5 @@
 from models.transactions import Transactions
+from models.transactions import Transactions
 from config.conf import Inic
 from helpers.useful import Exchanges
 import logging
@@ -9,20 +10,21 @@ logging.basicConfig(level=logging.ERROR, format='%(asctime)s - %(levelname)s - %
 
 class Queries:   
 
-    def validate_transaction(transaction: Transactions) -> bool:
-        if not transaction.getFkidVAccount():
-            logging.error("La cuenta no puede estar vacía.")
-            return False     
+    """def validate_transaction(transaction: Transactions) -> bool:
 
-        accrued_date = transaction.getaccruedDate()
-        if not accrued_date:
+        if not transaction.getFkidVAccount():
+           logging.error("La cuenta no puede estar vacía.")
+           return False    
+
+        if not transaction.getaccruedDate():
            logging.error("La fecha no puede estar vacía.")
            return False
+       
         try:
             datetime.strptime(accrued_date, "%Y-%m-%d")
         except ValueError:
             logging.error("La fecha debe estar en formato YYYY-MM-DD.")
-            return False
+            return False"""
         
     def QueryTransaction() -> list[Transactions]:  
         query ="""SELECT accountingtransactions.*,accounts.account FROM accountingtransactions 
@@ -43,16 +45,21 @@ class Queries:
             
     def InsertTransaction(transaction:Transactions) -> None:
         # Validar la transacción antes de la inserción
-        if not Queries.validate_transaction(transaction):
+        """if not Queries.validate_transaction(transaction):
             logging.error("Transacción inválida, no se insertará.")
-            return
+            return"""
         query ="""INSERT INTO accountingtransactions (FkidVAccount,FkidSubAccount,FkidVIncreasedBY,accruedDate
         ,amount,FKidCountry,FkidCity,comment,FkidDues)
         VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
-        parameters=[transaction.getFkidVAccount(),transaction.getFkidSubAccount(),
-                    transaction.getFkidVIncreasedBY(),transaction.getaccruedDate(),transaction.getamount(),
-                    transaction.getFKidCountry(),
-                    transaction.getFkidCity(),transaction.getcomment(),transaction.getFkidDues()] 
+        parameters=[transaction.get_fkid_v_account(),
+                transaction.get_fkid_sub_account(),
+                transaction.get_fkid_v_increased_by(),
+                transaction.get_accrued_date(),
+                transaction.get_amount(),   
+                transaction.get_fkid_country(),
+                transaction.get_fkid_city(),
+                transaction.get_comment(),
+                transaction.get_fkid_dues()] 
         try:          
             Inic.db_insert(query,parameters)    
         except Exception as e:
@@ -89,9 +96,3 @@ class Queries:
               print(f"Error insertando datos: {e}") 
 
     # Valida los datos de la transacción antes de la inserción.
-
-    
-
-
-                   
-    

@@ -1,4 +1,5 @@
 from config.conf import Inic
+from models.exchange import Exchange
 
 class Queries:   
     def LossesGraphic():  
@@ -56,4 +57,10 @@ class Queries:
             records.append((answer[0],acu))
         return records
 
-        
+    def dolar_cotiz()-> list[Exchange]:
+        query= """SELECT * FROM `exchange`
+            WHERE `FKidCurrency`=4 AND DATE(`dateCoti`) >= DATE_SUB(LAST_DAY(CURDATE()), INTERVAL 1 MONTH)
+            AND DATE(`dateCoti`) <= LAST_DAY(CURDATE())"""
+        parameters=[]
+        answers= Inic.db_connect(query,parameters)
+        return answers

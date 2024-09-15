@@ -23,10 +23,10 @@ class QueriesAccount:
             
     def Insert(account:Account) -> None:
         query ="INSERT INTO accounts (account,FkidVAccountType,FkidAccountingItem,FkidVIncreasedBY,FkidAccountingMethod,FKidCourrency,Detalle) VALUES(%s,%s,%s,%s,%s,%s,%s)"
-        parameters=[account.getFAccount(),account.getFkidVAccountType(),
-                    account.getFkidAccountingItem(),account.getFkidVIncreasedBY(),account.FkidAccountingMethod(),
-                    account.getFKidCourrency(),
-                    account.Detalle()]
+        parameters=[account.get_account(),account.get_fkid_v_account_type(),
+                    account.get_fkid_accounting_item(),account.get_fkid_v_increased_by(),account.get_fkid_accounting_method(),
+                    account.get_fkid_currency(),
+                    account.get_detalle()]
         try:         
             Inic.db_insert(query,parameters)   
         except Exception as e:

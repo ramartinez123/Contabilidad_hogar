@@ -1,18 +1,18 @@
 class Graphics:
-    def __init__(self,month, fee):
+    def __init__(self,month: int, fee :int):
         self.month = month
         self.fee = fee
 
-    def getMonth(self):
+    def get_month(self) -> int:
         return self.month
     
-    def setMonth(self,month):
+    def set_month(self, month: int) -> None:
         self.month = month
     
-    def getFee(self):       
+    def get_fee(self) -> int:       
         return self.fee
     
-    def setFee(self,fee):
-        self.fee= fee
+    def set_fee(self, fee: int) -> None:
+        self.fee= fee 
     
  

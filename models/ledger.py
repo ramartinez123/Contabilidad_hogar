@@ -1,6 +1,8 @@
 class Ledger:
-    def __init__(self,FkidVAccount, account, january,february,march,april,may,june,july,august,september,october,november,december):
-        self.FkidVAccount = FkidVAccount
+    def __init__(self, fkid_v_account: int, account: str, january: int, february: int, march: int, april: int,
+                 may: int, june: int, july: int, august: int, september: int, october: int, november: int,
+                 december: int) -> None:
+        self.fkid_v_account = fkid_v_account
         self.account = account
         self.january = january
         self.february = february
@@ -15,92 +17,86 @@ class Ledger:
         self.november = november
         self.december = december
 
-    def getFkidVAccount(self):
-        return self.FkidVAccount
-    
-    def setFkidVAccount(self,FkidVAccount):
-        self.FkidVAccount = FkidVAccount
-    
-    def getaccount(self):     
+    def get_fkid_v_account(self) -> int:
+        return self.fkid_v_account
+
+    def set_fkid_v_account(self, value: int) -> None:
+        self.fkid_v_account = value
+
+    def get_account(self) -> str:
         return self.account
-    
-    def setaccount(self,account):
-        self.account = account
-    
-    def getjanuary(self):
+
+    def set_account(self, value: str) -> None:
+        self.account = value
+
+    def get_january(self) -> int:
         return self.january
 
-    def setjanuary(self,january):
-        self.january =january
+    def set_january(self, january: int) -> None:
+        self.january = january
 
-    def getfebruary(self):
+    def get_february(self) -> int:
         return self.february
 
-    def setfebruary(self,february):
-        self.february =february
+    def set_february(self, february: int) -> None:
+        self.february = february
 
-    def getmarch(self):
+    def get_march(self) -> int:
         return self.march
 
-    def setmarch(self,march):
-        self.march =march
+    def set_march(self, march: int) -> None:
+        self.march = march
 
-    def getapril(self):
+    def get_april(self) -> int:
         return self.april
 
-    def setapril(self,april):
-        self.april =april
+    def set_april(self, april: int) -> None:
+        self.april = april
 
-    def getmay(self):
+    def get_may(self) -> int:
         return self.may
 
-    def setmay(self,may):
-        self.may =may
+    def set_may(self, may: int) -> None:
+        self.may = may
 
-    def getjune(self):
+    def get_june(self) -> int:
         return self.june
 
-    def setjune(self,june):
-        self.june =june
+    def set_june(self, june: int) -> None:
+        self.june = june
 
-    def getjuly(self):
+    def get_july(self) -> int:
         return self.july
 
-    def setjuly(self,july):
-        self.july =july
+    def set_july(self, july: int) -> None:
+        self.july = july
 
-    def getaugust(self):
+    def get_august(self) -> int:
         return self.august
 
-    def setaugust(self,august):
-        self.august =august
+    def set_august(self, august: int) -> None:
+        self.august = august
 
-    def getseptember(self):
+    def get_september(self) -> int:
         return self.september
 
-    def setseptember(self,september):
-        self.september =september
+    def set_september(self, september: int) -> None:
+        self.september = september
 
-    def getoctober(self):
+    def get_october(self) -> int:
         return self.october
 
-    def setoctober(self,october):
-        self.october =october
+    def set_october(self, october: int) -> None:
+        self.october = october
 
-    def getnovember(self):
+    def get_november(self) -> int:
         return self.november
 
-    def setnovember(self,november):
-        self.november =november
+    def set_november(self, november: int) -> None:
+        self.november = november
 
-    def getdecember(self):
+    def get_december(self) -> int:
         return self.december
 
-    def setdecember(self,december):
-        self.december =december
-
-    
-
-
-
-
+    def set_december(self, december: int) -> None:
+        self.december = december

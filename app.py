@@ -2,7 +2,11 @@ from flask import Flask
 from flask_mysqldb import MySQL
 from config.database import *
 from flask_login import LoginManager
+import logging
 import unittest
+
+
+logging.basicConfig(level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Inicialización de la aplicación Flask
 app=Flask(__name__)
@@ -10,6 +14,9 @@ app.config['MYSQL_HOST']= host
 app.config['MYSQL_USER']= user
 app.config['MYSQL_DB']= database    
 app.config['SECRET_KEY'] = 'aaaa'
+
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.WARNING)
 
 #Inicialización de MySQL y LoginManager:
 try:

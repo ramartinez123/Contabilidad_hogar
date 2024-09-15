@@ -1,59 +1,59 @@
 class Account:
-    def __init__(self,idAccount,Account,FkidVAccountType, FkidAccountingItem, FkidVIncreasedBY,
-                 FkidAccountingMethod,FKidCurrency,Detalle):
-        self.idAccount = idAccount
-        self.Account = Account
-        self.FkidVAccountType = FkidVAccountType
-        self.FkidAccountingItem = FkidAccountingItem
-        self.FkidVIncreasedBY = FkidVIncreasedBY
-        self.FkidAccountingMethod = FkidAccountingMethod
-        self.FKidCurrency = FKidCurrency
-        self.Detalle = Detalle
-       
-    def getidAccount(self):
-        return self.idAccount
+    def __init__(self, id_account: int, account: str, fkid_v_account_type: int, fkid_accounting_item: int,
+                 fkid_v_increased_by: int, fkid_accounting_method: int, fkid_currency: int, detalle: str) -> None:
+        self.id_account = id_account
+        self.account = account
+        self.fkid_v_account_type = fkid_v_account_type
+        self.fkid_accounting_item = fkid_accounting_item
+        self.fkid_v_increased_by = fkid_v_increased_by
+        self.fkid_accounting_method = fkid_accounting_method
+        self.fkid_currency = fkid_currency
+        self.detalle = detalle
 
-    def setidAccount(self,value):
-        self.idAccount =value
+    def get_id_account(self) -> int:
+        return self.id_account
 
-    def getAccount(self):
-        return self.Account
+    def set_id_account(self, value: int) -> None:
+        self.id_account = value
 
-    def setAccount(self,value):
-        self.Account =value
+    def get_account(self) -> str:
+        return self.account
 
-    def getFkidVAccountType(self):
-        return self.FkidVAccountType
+    def set_account(self, value: str) -> None:
+        self.account = value
 
-    def setFkidVAccountType(self,value):
-        self.FkidVAccountType =value
+    def get_fkid_v_account_type(self) -> int:
+        return self.fkid_v_account_type
 
-    def getFkidAccountingItem(self):
-        return self.FkidAccountingItem
+    def set_fkid_v_account_type(self, value: int) -> None:
+        self.fkid_v_account_type = value
 
-    def setFkidAccountingItem(self,value):
-        self.FkidAccountingItem =value
+    def get_fkid_accounting_item(self) -> int:
+        return self.fkid_accounting_item
 
-    def getFkidVIncreasedBY(self):
-        return self.FkidVIncreasedBY
+    def set_fkid_accounting_item(self, value: int) -> None:
+        self.fkid_accounting_item = value
 
-    def setFkidVIncreasedBY(self,value):
-        self.FkidVIncreasedBY =value
+    def get_fkid_v_increased_by(self) -> int:
+        return self.fkid_v_increased_by
 
-    def getFkidAccountingMethod(self):
-        return self.FkidAccountingMethod
+    def set_fkid_v_increased_by(self, value: int) -> None:
+        self.fkid_v_increased_by = value
 
-    def setFkidAccountingMethod(self,value):
-        self.FkidAccountingMethod =value 
-    
-    def getFKidCurrency(self):
-        return self.FKidCurrency
+    def get_fkid_accounting_method(self) -> int:
+        return self.fkid_accounting_method
 
-    def setFKidCurrency(self,value):
-        self.FKidCurrency =value 
+    def set_fkid_accounting_method(self, value: int) -> None:
+        self.fkid_accounting_method = value
 
-    def getDetalle(self):
-        return self.Detalle
+    def get_fkid_currency(self) -> int:
+        return self.fkid_currency
 
-    def setDetalle(self,value):
-        self.Detalle =value 
+    def set_fkid_currency(self, value: int) -> None:
+        self.fkid_currency = value
+
+    def get_detalle(self) -> str:
+        return self.detalle
+
+    def set_detalle(self, value: str) -> None:
+        self.detalle = value

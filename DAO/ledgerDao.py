@@ -49,12 +49,13 @@ class Queries:
                             answer[6] * factor, answer[7] * factor, answer[8] * factor, answer[9] * factor,
                             answer[10] * factor, answer[11] * factor, answer[12] * factor, answer[13] * factor)
             partialAcum = Ledger("", "Total",
-                                 partialAcum.getjanuary() + ledger.getjanuary(), partialAcum.getfebruary() + ledger.getfebruary(),
-                                 partialAcum.getmarch() + ledger.getmarch(), partialAcum.getapril() + ledger.getapril(),
-                                 partialAcum.getmay() + ledger.getmay(), partialAcum.getjune() + ledger.getjune(),
-                                 partialAcum.getjuly() + ledger.getjuly(), partialAcum.getaugust() + ledger.getaugust(),
-                                 partialAcum.getseptember() + ledger.getseptember(), partialAcum.getoctober() + ledger.getoctober(),
-                                 partialAcum.getnovember() + ledger.getnovember(), partialAcum.getdecember() + ledger.getdecember())
+                                 partialAcum.get_january() + ledger.get_january(), partialAcum.get_february() + ledger.get_february(),
+                                 partialAcum.get_march() + ledger.get_march(), partialAcum.get_april() + ledger.get_april(),
+                                 partialAcum.get_may() + ledger.get_may(), partialAcum.get_june() + ledger.get_june(),
+                                 partialAcum.get_july() + ledger.get_july(), partialAcum.get_august() + ledger.get_august(),
+                                 partialAcum.get_september() + ledger.get_september(), partialAcum.get_october() + ledger.get_october(),
+                                 partialAcum.get_november() + ledger.get_november(), partialAcum.get_december() + ledger.get_december())
+           
             records.append(ledger)
         records.append(partialAcum)
         return records   
@@ -65,24 +66,24 @@ class Queries:
         records = []
         for answer in answers:
                 answer = Ledger( answer[0],answer[1]
-                             ,answer[2]                                                 
-                             ,sum(answer[2:4])
-                             ,sum(answer[2:5])
-                             ,sum(answer[2:6])
-                             ,sum(answer[2:7])
-                             ,sum(answer[2:8])
-                             ,sum(answer[2:9])
-                             ,sum(answer[2:10])
-                             ,sum(answer[2:11])
-                             ,sum(answer[2:12])
-                             ,sum(answer[2:13])
-                             ,sum(answer[2:14]))
-                partialAcum = Ledger("","Total",partialAcum.getjanuary() + answer.getjanuary(),partialAcum.getfebruary() + answer.getfebruary()
-                                    ,partialAcum.getmarch() + answer.getmarch(),partialAcum.getapril() + answer.getapril()
-                                    ,partialAcum.getmay() + answer.getmay(),partialAcum.getjune() + answer.getjune()
-                                    ,partialAcum.getjuly() + answer.getjuly(),partialAcum.getaugust() + answer.getaugust()
-                                    ,partialAcum.getseptember() + answer.getseptember(),partialAcum.getoctober() + answer.getoctober()
-                                    ,partialAcum.getnovember() + answer.getnovember(),partialAcum.getdecember() + answer.getdecember())
+                             ,answer[2] * factor                                                
+                             ,sum(answer[2:4]) * factor
+                             ,sum(answer[2:5]) * factor
+                             ,sum(answer[2:6]) * factor
+                             ,sum(answer[2:7]) * factor
+                             ,sum(answer[2:8]) * factor
+                             ,sum(answer[2:9]) * factor
+                             ,sum(answer[2:10]) * factor
+                             ,sum(answer[2:11]) * factor
+                             ,sum(answer[2:12]) * factor
+                             ,sum(answer[2:13]) * factor
+                             ,sum(answer[2:14]) * factor)
+                partialAcum = Ledger("","Total",partialAcum.get_january() + answer.get_january(),partialAcum.get_february() + answer.get_february()
+                                    ,partialAcum.get_march() + answer.get_march(),partialAcum.get_april() + answer.get_april()
+                                    ,partialAcum.get_may() + answer.get_may(),partialAcum.get_june() + answer.get_june()
+                                    ,partialAcum.get_july() + answer.get_july(),partialAcum.get_august() + answer.get_august()
+                                    ,partialAcum.get_september() + answer.get_september(),partialAcum.get_october() + answer.get_october()
+                                    ,partialAcum.get_november() + answer.get_november(),partialAcum.get_december() + answer.get_december())
                 records.append(answer)
         records.append (partialAcum)      
         return records   

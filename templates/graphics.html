@@ -1,6 +1,55 @@
 {% extends "base.html" %}
 {% block head %}
 {{ super() }}
+<style>
+  .card-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    height: calc(100% - 40px);
+    text-align: center;
+    /* Adjust according to the card header height */
+  }
+
+  .card-body canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .empty-card {
+    height: 80px;
+    /* Adjust the height as needed */
+  }
+
+  .card-title {
+    font-size: 16px;
+    /* Adjust font size as needed */
+  }
+
+  .currency-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.2s;
+    background-color: #f8f9fa;
+    padding: 0;
+    height: 80px;
+  }
+
+  .currency-card:hover {
+    transform: scale(1.05);
+  }
+
+   .fa-dollar-sign {
+    font-size: 30px;
+    color: #28a745;
+  }
+
+  .card-text {
+    font-size: 17px;
+    font-weight: bold;
+  }
+</style>
 {% endblock %}
 
 <body>
@@ -9,37 +58,166 @@
   {% endblock %}
 
   {% block content %}
-
   <div class="container-fluid mt-3">
 
     <script>
-      let aLooses = {{ transactions | tojson}};
-      let aAssets = {{ assets | tojson}};
-      let Looses_by = {{ categories | tojson}};
-      let liabilities = {{ liability | tojson}};                             
+      let aLooses = {{ transactions | tojson }};
+      let aAssets = {{ assets | tojson }};
+      let Looses_by = {{ categories | tojson }};
+      let liabilities = {{ liability | tojson }};
     </script>
 
+    <!-- Row for the empty cards -->
     <div class="row mb-4">
-      <div class="col-md-6">
-        <canvas id="grafica3"></canvas>
+      <div class="col-md-3">
+        <div class="card currency-card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <i class="fas fa-dollar-sign"></i>
+              </div>
+              <div class="col">
+                <p class="card-text text-primary">{{ dollar[0][3] }}</p>
+              </div>
+              <div class="col">
+                <p class="card-text text-primary">{{ dollar[0][1] }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="col-md-6 ">
-        <canvas id="grafica4"></canvas>
+
+      <div class="col-md-3">
+        <div class="card currency-card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="col">
+                <p class="card-text text-primary">120%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card currency-card">
+          <div class="card-body ">
+            <div class="row justify-content-center align-items-center">
+              <div class="col">
+                <h5 class="card-title ">Perdidas </h5>
+                <h5 class="card-title ">2 M Ant </h5>
+              </div>
+      
+              {% for categorie in categories[-1:] %}
+              <div class="col">
+                <p class="card-text text-primary">{{ transactions[1][1]-transactions[0][1] }}</p>
+              </div>
+      
+              <div class="col">
+                <p class="card-text text-primary">{{(((transactions[1][1]-transactions[0][1])/transactions[1][1])*100)|
+                round(2) }}%</p>
+              </div>
+              {% endfor %}
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card currency-card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <i class="fas fa-chart-line"></i></i>
+              </div>
+              <div class="col">
+                <p class="card-text text-primary">120%</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="row mb-4 ">
-      <div class="col-md-6">
-        <canvas id="grafica5"></canvas>
+    <!-- Row for the first set of charts -->
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <div class="card" style="height: 240px;">
+          <div class="card-header" style="height: 40px;">
+            <h5 class="card-title">Perdidas por mes</h5>
+          </div>
+          <div class="card-body">
+            <canvas id="grafica3"></canvas>
+          </div>
+        </div>
       </div>
 
-      <div class="col-md-6 ">
-        <canvas id="grafica6"></canvas>
+      <div class="col-md-4">
+        <div class="card" style="height: 240px;">
+          <div class="card-header" style="height: 40px;">
+            <h5 class="card-title">Activo por mes</h5>
+          </div>
+          <div class="card-body">
+            <canvas id="grafica4"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card" style="height: 240px;">
+          <div class="card-header" style="height: 40px;">
+            <h5 class="card-title">Tipo de gasto acumulado</h5>
+          </div>
+          <div class="card-body mb-4 ">
+            <canvas id="grafica5"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row for the second set of charts -->
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <div class="card" style="height: 240px;">
+          <div class="card-header" style="height: 40px;">
+            <h5 class="card-title">Pasivo por</h5>
+          </div>
+          <div class="card-body">
+            <canvas id="grafica6"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card" style="height: 240px;">
+          <div class="card-header" style="height: 40px;">
+            <h5 class="card-title">Pasivo por</h5>
+          </div>
+          <div class="card-body">
+            <canvas id="grafica6"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card" style="height: 240px;">
+          <div class="card-header" style="height: 40px;">
+            <h5 class="card-title">Pasivo por</h5>
+          </div>
+          <div class="card-body">
+            <canvas id="grafica6"></canvas>
+          </div>
+        </div>
       </div>
     </div>
 
     {% endblock %}
+
     {% block footer %}
     {{ super() }}
     {% endblock %}

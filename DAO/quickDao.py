@@ -29,22 +29,22 @@ class Queries:
         }
 
         # Obtener y mapear la cuenta
-        account = transaction.getFkidVAccount()
+        account = transaction.get_fkid_v_account()
         if account in account_map:
-            transaction.setFkidVAccount(account_map[account])
+            transaction.set_fkid_v_account(account_map[account])
         
         # Validar datos antes de la inserción
         try:
             parameters = [
-                transaction.getFkidVAccount(),
-                transaction.getFkidSubAccount(),
-                transaction.getFkidVIncreasedBY(),
-                transaction.getaccruedDate(),
-                transaction.getamount(),
-                transaction.getFKidCountry(),
-                transaction.getFkidCity(),
-                transaction.getcomment(),
-                transaction.getFkidDues()
+                transaction.get_fkid_v_account(),
+                transaction.get_fkid_sub_account(),
+                transaction.get_fkid_v_increased_by(),
+                transaction.get_accrued_date(),
+                transaction.get_amount(),   
+                transaction.get_fkid_country(),
+                transaction.get_fkid_city(),
+                transaction.get_comment(),
+                transaction.get_fkid_dues()
             ]
 
             # Verificar que todos los parámetros sean válidos

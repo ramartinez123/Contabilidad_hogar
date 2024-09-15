@@ -33,20 +33,20 @@
             </thead>
             <tbody>
               {% for transaction in transactions %}
-              {% if transaction.FkidVIncreasedBY == 1 %}
+              {% if transaction.fkid_v_increased_by == 1 %}
               <tr>
-                <td>{{ transaction.id_AccountingTransactions }}</td>
-                <td>{{ transaction.accruedDate }}</td>
-                <td>{{ transaction.FkidVAccount }}</td>
+                <td>{{ transaction.id_accounting_transactions }}</td>
+                <td>{{ transaction.accrued_date }}</td>
+                <td>{{ transaction.fkid_v_account }}</td>
                 <td class="text-center">{{ transaction.amount }}</td>
                 <td class="text-center"></td>
                 <td>{{ transaction.comment }}</td>
-              </tr>
+              </tr> 
               {% else %}
               <tr>
-                <td>{{ transaction.id_AccountingTransactions }}</td>
-                <td>{{ transaction.accruedDate }}</td>
-                <td>{{ transaction.FkidVAccount }}</td>
+                <td>{{ transaction.id_accounting_transactions }}</td>
+                <td>{{ transaction.accrued_date }}</td>
+                <td>{{ transaction.fkid_v_account  }}</td>
                 <td class="text-center"></td>
                 <td class="text-center">{{ transaction.amount }}</td>
                 <td></td>

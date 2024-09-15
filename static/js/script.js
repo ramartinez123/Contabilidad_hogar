@@ -27,7 +27,13 @@ function createBarChart(canvasId, labels, data, backgroundColor, borderColor, ti
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        callback: function(value) {
+                            if (value >= 1000) {
+                                return value / 1000 + 'K';
+                            }
+                            return value;
+                        }
                     }
                 }],
                 xAxes: [{
@@ -36,6 +42,7 @@ function createBarChart(canvasId, labels, data, backgroundColor, borderColor, ti
                     }
                 }]
             }
+            
         }
     };
 
@@ -61,10 +68,11 @@ function createPieChart(canvasId, labels, data, backgroundColor, borderColor, ti
             title: {
                 display: true,
                 text: titleText,
-                fontSize: 18,
+                fontSize: 12,
             },
             legend: {
                 display: true,
+                position: 'left', 
             }
         }
     };
@@ -80,7 +88,7 @@ const graphConfigs = [
         data: aLooses.map(element => element[1]),
         backgroundColor: '#1414b8',
         borderColor: 'white',
-        titleText: "Perdidas por mes $"
+        titleText: ""
     },
     {
         canvasId: "#grafica4",
@@ -88,7 +96,7 @@ const graphConfigs = [
         data: aAssets.map(element => element[1]),
         backgroundColor: '#293614',
         borderColor: 'white',
-        titleText: "Activo por mes $"
+        titleText: ""
     },
     {
         canvasId: "#grafica5",
@@ -96,7 +104,7 @@ const graphConfigs = [
         data: Looses_by.map(element => element[1]),
         backgroundColor: ['rgb(69,177,223)', 'rgb(99,201,122)', 'rgb(203,82,82)', 'rgb(229,224,88)', 'rgb(119,127,173)', 'rgb(139,151,72)', 'rgb(253,32,32)', 'rgb(279,174,38)'],
         borderColor: ['grey','grey','grey','grey','grey','grey','grey','grey'],
-        titleText: "Tipo de Gasto acumulado en $"
+        titleText: ""
     },
     {
         canvasId: "#grafica6",
@@ -104,7 +112,7 @@ const graphConfigs = [
         data: liabilities.map(element => element[1]),
         backgroundColor: '#1414b8',
         borderColor: 'white',
-        titleText: "Pasivo por mes $"
+        titleText: ""
     }
 ];
 

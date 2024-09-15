@@ -10,6 +10,7 @@ def graphics():
     datas= Queries.AssetsGraphics()
     datas2=Queries.Losses_byGraphic()
     datas3=Queries.LiabilitiesGraphics()
-    return render_template("graphics.html", transactions = data, assets = datas, categories=datas2, liability=datas3)
+    datas4=Queries.dolar_cotiz()
+    return render_template("graphics.html", transactions = data, assets = datas, categories=datas2, liability=datas3, dollar=datas4)
 
 
