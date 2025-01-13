@@ -58,18 +58,18 @@
           <tr>
             <td>{{ transaction.fkid_v_account }}</td>
             <td>{{ transaction.account }}</td>
-            <td>{{ transaction.january }}</td>
-            <td>{{ transaction.february }}</td>
-            <td>{{ transaction.march }}</td>
-            <td>{{ transaction.april }}</td>
-            <td>{{ transaction.may }}</td>
-            <td>{{ transaction.june }}</td>
-            <td>{{ transaction.july }}</td>
-            <td>{{ transaction.august }}</td>
-            <td>{{ transaction.september }}</td>
-            <td>{{ transaction.october }}</td>
-            <td>{{ transaction.november }}</td>
-            <td>{{ transaction.december }}</td>
+            <td>{{ transaction.january | format_currency}}</td>
+            <td>{{ transaction.february | format_currency}}</td>
+            <td>{{ transaction.march | format_currency}}</td>
+            <td>{{ transaction.april | format_currency}}</td>
+            <td>{{ transaction.may | format_currency }}</td>
+            <td>{{ transaction.june | format_currency}}</td>
+            <td>{{ transaction.july | format_currency}}</td>
+            <td>{{ transaction.august | format_currency}}</td>
+            <td>{{ transaction.september | format_currency}}</td>
+            <td>{{ transaction.october | format_currency}}</td>
+            <td>{{ transaction.november | format_currency}}</td>
+            <td>{{ transaction.december | format_currency}}</td>
           </tr>
           {% endfor %}
         </tbody>

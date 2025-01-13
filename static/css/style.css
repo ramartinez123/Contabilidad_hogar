@@ -60,15 +60,16 @@ footer {
 
 }
 
-.card-body {
+/*.card-body {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0;
     height: calc(100% - 60px); /* Adjust according to the card header height */
-  }
+  
 
-.card-body canvas {
+/*.card-body canvas {
     width: 100% !important;
     height: 100% !important;
   }
+  */

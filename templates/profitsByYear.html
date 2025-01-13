@@ -56,18 +56,18 @@
           <tr style="text-align: right">
             <td class="col-md-1" style="text-align: left">{{ transaction.fkid_v_account}}</td>
             <td class="col-md-1" style="text-align: left">{{ transaction.account}}</td>
-            <td class="col-md-1">{{ transaction.january}}</td>
-            <td class="col-md-1">{{ transaction.february}}</td>
-            <td class="col-md-1">{{ transaction.march}}</td>
-            <td class="col-md-1">{{ transaction.april}}</td>
-            <td class="col-md-1">{{ transaction.may}}</td>
-            <td class="col-md-1">{{ transaction.june}}</td>
-            <td class="col-md-1">{{ transaction.july}}</td>
-            <td class="col-md-1">{{ transaction.august}}</td>
-            <td class="col-md-1">{{ transaction.september}}</td>
-            <td class="col-md-1">{{ transaction.october}}</td>
-            <td class="col-md-1">{{ transaction.november}}</td>
-            <td class="col-md-1">{{ transaction.december}}</td>
+            <td class="col-md-1">{{ transaction.january | format_currency}}</td>
+            <td class="col-md-1">{{ transaction.february | format_currency}}</td>
+            <td class="col-md-1">{{ transaction.march | format_currency}}</td>
+            <td class="col-md-1">{{ transaction.april | format_currency}}</td>
+            <td class="col-md-1">{{ transaction.may | format_currency}}</td>
+            <td class="col-md-1">{{ transaction.june | format_currency}}</td>
+            <td class="col-md-1">{{ transaction.july | format_currency}}</td>
+            <td class="col-md-1">{{ transaction.august | format_currency}}</td>
+            <td class="col-md-1">{{ transaction.september | format_currency}}</td>
+            <td class="col-md-1">{{ transaction.october | format_currency}}</td>
+            <td class="col-md-1">{{ transaction.november | format_currency}}</td>
+            <td class="col-md-1">{{ transaction.december | format_currency}}</td>
           </tr>
           {% endfor %}
 

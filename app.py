@@ -40,6 +40,14 @@ from controller.loginController import *
 from controller.accountController import *
 from models.errors import *
 
+@app.template_filter('format_currency')
+def format_currency(value):
+    try:
+        # Formato sin decimales, con separador de miles
+        return f"${int(value):,}".replace(",", ".")
+    except (ValueError, TypeError):
+        return value  # Devuelve el valor original en caso de error
+
 #Ejecución de la Aplicación:
 if __name__ == '__main__':
     app.run(port = 3000, debug = True)

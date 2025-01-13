@@ -32,8 +32,7 @@ class Exchangesa:
             curry = 4    
         else:
             curry = 1
-        return(curry)
-    
+        return(curry)   
    
     @staticmethod
     def importIs(importa) -> list[Exchange]: 
@@ -50,8 +49,13 @@ class Exchangesa:
 
         records =[]
         answers = Inic.db_connect(query24,parameters)     
-        records = [Exchange(*answer) for answer in answers]
-        
+        records = [Exchange(*answer) for answer in answers]       
         return records
     
-    
+    #@app.template_filter('format_currency')
+    def format_currency(value):
+        try:
+        # Formato sin decimales, con separador de miles
+            return f"${int(value):,}".replace(",", ".")
+        except (ValueError, TypeError):
+            return value  # Devuelve el valor original en caso de error

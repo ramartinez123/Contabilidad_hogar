@@ -35,7 +35,7 @@
                 <td>{{ transaction.id_Exchange }}</td>
                 <td>{{ transaction.dateCoti }}</td>
                 <td>{{ transaction.FkidCurrency }}</td>
-                <td>{{ transaction.importeCot }}</td>
+                <td>{{ transaction.importeCot | format_currency}}</td>
               </tr>
               {% endfor %}
             </tbody>

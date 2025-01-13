@@ -38,7 +38,7 @@
                 <td>{{ transaction.id_accounting_transactions }}</td>
                 <td>{{ transaction.accrued_date }}</td>
                 <td>{{ transaction.fkid_v_account }}</td>
-                <td class="text-center">{{ transaction.amount }}</td>
+                <td class="text-center">{{ transaction.amount | format_currency}}</td>
                 <td class="text-center"></td>
                 <td>{{ transaction.comment }}</td>
               </tr> 
@@ -48,7 +48,7 @@
                 <td>{{ transaction.accrued_date }}</td>
                 <td>{{ transaction.fkid_v_account  }}</td>
                 <td class="text-center"></td>
-                <td class="text-center">{{ transaction.amount }}</td>
+                <td class="text-center">{{ transaction.amount | format_currency}}</td>
                 <td></td>
               </tr>
               {% endif %}
