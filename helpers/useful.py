@@ -11,8 +11,8 @@ class Exchanges:
            
     def UpdateExchange() -> list[Transactions]:
 
-        dates_start= """ SET @start_date := '2024-01-01';"""
-        dates_end =  """SET @end_date := '2024-12-31';"""
+        dates_start= """ SET @start_date := '2025-01-01';"""
+        dates_end =  """SET @end_date := '2025-12-31';"""
         
         query24 ="""  
             SELECT accountingtransactions.FkidVAccount as Codigo, accounts.account as Cuenta
@@ -137,7 +137,7 @@ class Exchanges:
             
                               
             #Recorre datos cotizaciones monedas extranjeras
-            exchangeAccounts = Exchangesa.importIs(answer.getFkidVAccount())  
+            exchangeAccounts = Exchangesa.importIs(answer.get_fkid_v_account())  
             for exchangeAccount in exchangeAccounts:
                     exchangeAccount = Exchange(
                        exchangeAccount.getid_Exchange(),
@@ -146,88 +146,88 @@ class Exchanges:
                        exchangeAccount.getImporteCot()) 
                     
                     monthCotiz = exchangeAccount.getid_Exchange()
-                    accountCotiz = answer.getFkidVAccount()    
+                    accountCotiz = answer.get_fkid_v_account()    
 
                     #Evalua el mes y la cuenta
                     match monthCotiz:
                         case 1:     
-                            result_1 = exchangeAccount.getImporteCot() * answer.getjanuary()
+                            result_1 = exchangeAccount.getImporteCot() * answer.get_january()
                             if accountCotiz in a_dict:
                             # Actualiza el valor en a_dict para la cuenta y el mes de febrero (2)
                                 a_dict[accountCotiz][1] = result_1
                             elif accountCotiz == 421:
                             # Actualiza el valor en a16_dict para el mes de febrero (2)
-                                a16_dict[1] = answer.getjanuary()
+                                a16_dict[1] = answer.get_january()
                                 
 
                         case 2:
-                            result_1 = exchangeAccount.getImporteCot() * answer.getfebruary()
+                            result_1 = exchangeAccount.getImporteCot() * answer.get_february()
                             if accountCotiz in a_dict:
                                 a_dict[accountCotiz][2] = result_1
                             elif accountCotiz == 421:
-                                a16_dict[2] = answer.getfebruary()
+                                a16_dict[2] = answer.get_february()
                                
                         case 3:
-                            result_1= exchangeAccount.getImporteCot() * answer.getmarch()
+                            result_1= exchangeAccount.getImporteCot() * answer.get_march()
                             if accountCotiz in a_dict:
                                 a_dict[accountCotiz][3] = result_1
                             elif accountCotiz == 421:
-                                a16_dict[3]=answer.getmarch()
+                                a16_dict[3]=answer.get_march()
 
                         case 4:
-                            result_1= exchangeAccount.getImporteCot() * answer.getapril()
+                            result_1= exchangeAccount.getImporteCot() * answer.get_april()
                             if accountCotiz in a_dict:
                                 a_dict[accountCotiz][4] = result_1
                             elif accountCotiz == 421:
-                                a16_dict[4]=answer.getapril()
+                                a16_dict[4]=answer.get_april()
                         case 5:
-                            result_1= exchangeAccount.getImporteCot() * answer.getmay()
+                            result_1= exchangeAccount.getImporteCot() * answer.get_may()
                             if accountCotiz in a_dict:
                                 a_dict[accountCotiz][5] = result_1
                             elif accountCotiz == 421:
-                                a16_dict[5]=answer.getmay()
+                                a16_dict[5]=answer.get_may()
                         case 6:
-                            result_1= exchangeAccount.getImporteCot() * answer.getjune()
+                            result_1= exchangeAccount.getImporteCot() * answer.get_june()
                             if accountCotiz in a_dict:
                                 a_dict[accountCotiz][6] = result_1
                             elif accountCotiz == 421:
-                                a16_dict[6]=answer.getjune()
+                                a16_dict[6]=answer.get_june()
                         case 7:
-                            result_1= exchangeAccount.getImporteCot() * answer.getjuly()
+                            result_1= exchangeAccount.getImporteCot() * answer.get_july()
                             if accountCotiz in a_dict:
                                 a_dict[accountCotiz][7] = result_1
                             elif accountCotiz == 421:
-                                a16_dict[7]=answer.getjuly()
+                                a16_dict[7]=answer.get_july()
                         case 8:
-                            result_1= exchangeAccount.getImporteCot() * answer.getaugust()
+                            result_1= exchangeAccount.getImporteCot() * answer.get_august()
                             if accountCotiz in a_dict:
                                 a_dict[accountCotiz][8] = result_1
                             elif accountCotiz == 421:
-                                a16_dict[8]=answer.getaugust()                        
+                                a16_dict[8]=answer.get_august()                        
                         case 9:
-                            result_1= exchangeAccount.getImporteCot() * answer.getseptember()
+                            result_1= exchangeAccount.getImporteCot() * answer.get_september()
                             if accountCotiz in a_dict:
                                 a_dict[accountCotiz][9] = result_1
                             elif accountCotiz == 421:
-                                a16_dict[9]=answer.getseptember()                     
+                                a16_dict[9]=answer.get_september()                     
                         case 10:
-                            result_1= exchangeAccount.getImporteCot() * answer.getoctober()
+                            result_1= exchangeAccount.getImporteCot() * answer.get_october()
                             if accountCotiz in a_dict:
                                 a_dict[accountCotiz][10] = result_1
                             elif accountCotiz == 421:
-                                a16_dict[10]=answer.getoctober()                          
+                                a16_dict[10]=answer.get_october()                          
                         case 11:
-                            result_1= exchangeAccount.getImporteCot() * answer.getnovember()
+                            result_1= exchangeAccount.getImporteCot() * answer.get_november()
                             if accountCotiz in a_dict:
                                 a_dict[accountCotiz][11] = result_1
                             elif accountCotiz == 421:
-                                a16_dict[11]=answer.getnovember()
+                                a16_dict[11]=answer.get_november()
                         case 12:
-                            result_1= exchangeAccount.getImporteCot() * answer.getdecember()
+                            result_1= exchangeAccount.getImporteCot() * answer.get_december()
                             if accountCotiz in a_dict:
                                 a_dict[accountCotiz][12] = result_1
                             elif accountCotiz == 421:
-                                a16_dict[12]=answer.getdecember()
+                                a16_dict[12]=answer.get_december()
 
         # Inicializa las diferencias
         differences = {month: 0 for month in range(1, 13)}

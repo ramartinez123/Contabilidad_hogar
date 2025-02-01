@@ -90,14 +90,14 @@ class Queries:
 
     #Reporte Perdidas
     def Losses_byYear(year: int) -> List[Ledger]:
-        query = Queries.build_query(year, 301, 400, 301, 400)
+        query = Queries.build_query(year, 300, 400, 300, 400)
         parameters =[]
         answers = Inic.db_connect(query,parameters)
         return Queries.process_answers_A(answers, factor=1)
     
     #Reporte Ganancias
     def Profits_byYear(year: int) -> List[Ledger]: 
-        query = Queries.build_query(year, 401, 400, 401, 500)
+        query = Queries.build_query(year, 400, 426, 400, 426)
         parameters =[]
         answers = Inic.db_connect(query,parameters)
         return Queries.process_answers_A(answers, factor=-1)

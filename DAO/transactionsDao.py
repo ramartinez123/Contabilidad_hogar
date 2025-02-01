@@ -86,10 +86,10 @@ class Queries:
         VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
         transactions=Exchanges.UpdateExchange()
         for transaction in transactions:
-          parameters=[transaction.getFkidVAccount(),transaction.getFkidSubAccount(),
-                    transaction.getFkidVIncreasedBY(),transaction.getaccruedDate(),transaction.getamount(),
-                    transaction.getFKidCountry(),
-                    transaction.getFkidCity(),transaction.getcomment(),transaction.getFkidDues()  ] 
+          parameters=[transaction.get_fkid_v_account(),transaction.get_fkid_sub_account(),
+                    transaction.get_fkid_v_increased_by(),transaction.get_accrued_date(),transaction.get_amount(),
+                    transaction.get_fkid_country(),
+                    transaction.get_fkid_city(),transaction.get_comment(),transaction.get_fkid_dues()  ] 
           try:       
               Inic.db_insert(query,parameters) 
           except Exception as e:

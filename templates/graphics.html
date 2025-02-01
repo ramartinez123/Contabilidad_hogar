@@ -74,7 +74,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col">
-                <i class="fas fa-dollar-sign"></i>
+                <i class="fas fa-dollar-sign">1250</i>
               </div>
 
             </div>
@@ -91,7 +91,7 @@
                 <i class="fas fa-chart-line"></i>
               </div>
               <div class="col">
-                <p class="card-text text-primary">120%</p>
+                <p class="card-text text-primary">En desarrollo</p>
               </div>
             </div>
           </div>
@@ -103,18 +103,16 @@
           <div class="card-body ">
             <div class="row justify-content-center align-items-center">
               <div class="col">
-                <h5 class="card-title ">Perdidas </h5>
-                <h5 class="card-title ">2 M Ant </h5>
+                <h5 class="card-title ">+/- Mes Ant </h5>
               </div>
       
               {% for categorie in categories[-1:] %}
               <div class="col">
-                <p class="card-text text-primary">{{ transactions[1][1]-transactions[0][1] }}</p>
+                <p class="card-text text-primary">{{ transactions[0][1]-1 }}</p>
               </div>
       
               <div class="col">
-                <p class="card-text text-primary">{{(((transactions[1][1]-transactions[0][1])/transactions[1][1])*100)|
-                round(2) }}%</p>
+                  <p class="card-text text-primary">{{ (((transactions[0][1] - 1) / transactions[0][1]) * 100) | round(0) }}%</p>
               </div>
               {% endfor %}
             </div>
@@ -131,7 +129,7 @@
                 <i class="fas fa-chart-line"></i></i>
               </div>
               <div class="col">
-                <p class="card-text text-primary">120%</p>
+                <p class="card-text text-primary"> En desarrollo </p>
               </div>
             </div>
           </div>
@@ -191,7 +189,7 @@
       <div class="col-md-4">
         <div class="card" style="height: 240px;">
           <div class="card-header" style="height: 40px;">
-            <h5 class="card-title">A completar</h5>
+            <h5 class="card-title">En desarrollo</h5>
           </div>
           <div class="card-body">
             <canvas id="grafica6"></canvas>
@@ -202,7 +200,7 @@
       <div class="col-md-4">
         <div class="card" style="height: 240px;">
           <div class="card-header" style="height: 40px;">
-            <h5 class="card-title">A completer</h5>
+            <h5 class="card-title">En desarrollo</h5>
           </div>
           <div class="card-body">
             <canvas id="grafica6"></canvas>

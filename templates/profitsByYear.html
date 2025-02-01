@@ -17,7 +17,7 @@
         <div class="col-md-1">
           <select name="year">
             {% for year in range(2022, 2026) %}
-                <option value="{{ year }}">{{ year }}</option>
+                 <option value="{{ year }}" {% if year == 2025 %}selected{% endif %}>{{ year }}</option>
             {% endfor %}
           </select>
         </div>
@@ -54,20 +54,20 @@
         <tbody>
           {% for transaction in transactions %}
           <tr style="text-align: right">
-            <td class="col-md-1" style="text-align: left">{{ transaction.fkid_v_account}}</td>
-            <td class="col-md-1" style="text-align: left">{{ transaction.account}}</td>
-            <td class="col-md-1">{{ transaction.january | format_currency}}</td>
-            <td class="col-md-1">{{ transaction.february | format_currency}}</td>
-            <td class="col-md-1">{{ transaction.march | format_currency}}</td>
-            <td class="col-md-1">{{ transaction.april | format_currency}}</td>
-            <td class="col-md-1">{{ transaction.may | format_currency}}</td>
-            <td class="col-md-1">{{ transaction.june | format_currency}}</td>
-            <td class="col-md-1">{{ transaction.july | format_currency}}</td>
-            <td class="col-md-1">{{ transaction.august | format_currency}}</td>
-            <td class="col-md-1">{{ transaction.september | format_currency}}</td>
-            <td class="col-md-1">{{ transaction.october | format_currency}}</td>
-            <td class="col-md-1">{{ transaction.november | format_currency}}</td>
-            <td class="col-md-1">{{ transaction.december | format_currency}}</td>
+            <td class="text-left" style="text-align: left">{{ transaction.fkid_v_account}}</td>
+            <td class="text-left" style="text-align: left">{{ transaction.account}}</td>
+            <td class="text-right">{{ transaction.january | format_currency}}</td>
+            <td class="text-right">{{ transaction.february | format_currency}}</td>
+            <td class="text-right">{{ transaction.march | format_currency}}</td>
+            <td class="text-right">{{ transaction.april | format_currency}}</td>
+            <td class="text-right1">{{ transaction.may | format_currency}}</td>
+            <td class="text-right">{{ transaction.june | format_currency}}</td>
+            <td class="text-right">{{ transaction.july | format_currency}}</td>
+            <td class="text-right">{{ transaction.august | format_currency}}</td>
+            <td class="text-right">{{ transaction.september | format_currency}}</td>
+            <td class="text-right">{{ transaction.october | format_currency}}</td>
+            <td class="text-right">{{ transaction.november | format_currency}}</td>
+            <td class="text-right">{{ transaction.december | format_currency}}</td>
           </tr>
           {% endfor %}
 

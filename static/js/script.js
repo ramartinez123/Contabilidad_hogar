@@ -28,6 +28,7 @@ function createBarChart(canvasId, labels, data, backgroundColor, borderColor, ti
                 yAxes: [{
                     ticks: {
                         beginAtZero: true,
+                        maxTicksLimit: 4,
                         callback: function(value) {
                             if (value >= 1000) {
                                 return value / 1000 + 'K';
@@ -38,10 +39,15 @@ function createBarChart(canvasId, labels, data, backgroundColor, borderColor, ti
                 }],
                 xAxes: [{
                     gridLines: {
-                        offsetGridLines: true
-                    }
+                        offsetGridLines: true // Asegura que no haya espacio en los bordes
+                    },
+                    ticks: {
+                        autoSkip: true, // Muestra todas las etiquetas si las tienes
+                    },
+                    offset: true, // Quita el desplazamiento en las barras
                 }]
             }
+
             
         }
     };
